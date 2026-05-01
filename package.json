@@ -1,0 +1,28 @@
+{
+  "name": "nyondogeneralhardwaresystem",
+  "version": "1.0.0",
+  "description": "NyondoStock System",
+  "keywords": [
+    "Nyondo",
+    "Stock"
+  ],
+  "homepage": "https://github.com/ishimwealphonsine/NYONDOGENERALHARDWARESYSTEM#readme",
+  "bugs": {
+    "url": "https://github.com/ishimwealphonsine/NYONDOGENERALHARDWARESYSTEM/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishimwealphonsine/NYONDOGENERALHARDWARESYSTEM.git"
+  },
+  "license": "ISC",
+  "author": "Ishimwe Alphonsine",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
