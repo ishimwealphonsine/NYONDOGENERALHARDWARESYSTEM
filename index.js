@@ -1,6 +1,7 @@
 // 1. Dependencies
 const express = require('express');
 const expressSession = require('express-session');
+const path = require('path');
 
 // 2. Instantiations
 const app = express();
@@ -22,6 +23,8 @@ app.use(expressSession({
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // 5. Routes

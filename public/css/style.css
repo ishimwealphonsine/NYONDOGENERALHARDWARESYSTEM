@@ -1,0 +1,12 @@
+h1 {
+    color:rgb(0, 255, 157);
+    background-color: blueviolet;
+}
+
+p {
+    background-color: brown;
+}
+
+div {
+    background-color: hsl(60, 78%, 55%);
+}
