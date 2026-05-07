@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NyondoStock Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+
+    <div class="card login-card border-0 shadow-lg w-100">
+      <div class="card-body p-4">
+        <div class="container row">
+          <img src="/public/images/logo.png" alt="NyondoStock Logo" width="40" height="40" class="col-2">
+           <h2 class="fw-bold mb-3 col-9">Login to Your Account</h2>
+        </div>
+       
+
+        <p class="fw-semibold mb-2">Select Role</p>
+
+        <div class="row g-2 mb-2">
+          <div class="col-3">
+            <div class="role-card active text-center p-3" data-role="Sales Attendant">
+              <i class="bi bi-person fs-4 d-block mb-1"></i>
+              <span>Sales</span>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="role-card text-center p-3" data-role="Store Manager">
+              <i class="bi bi-shop fs-4 d-block mb-1"></i>
+              <span>Store</span>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="role-card text-center p-3" data-role="Accounts/Admin">
+              <i class="bi bi-briefcase fs-4 d-block mb-1"></i>
+              <span>Accounts/Admin</span>
+            </div>
+          </div>
+        </div>
+
+        <p id="selectedRoleText" class="fs-5 text-secondary mb-3">Sales Attendant</p>
+
+        <form action="dashboard.html" method="POST">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Username</label>
+            <input 
+              type="text" 
+              name="username" 
+              class="form-control" 
+              placeholder="Enter your username" 
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Password</label>
+            <input 
+              type="password" 
+              name="password" 
+              class="form-control" 
+              placeholder="Enter your password" 
+              required
+            >
+          </div>
+
+          <input type="hidden" name="role" id="selectedRoleInput" value="Sales Attendant">
+
+          <button type="submit" class="btn btn-purple btn-lg w-100 fw-bold py-3" href="admindashboard.html">
+            Login
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <a href="index.html" class="text-decoration-none mt-3 backtohome">
+      Back to Home
+    </a>
+
+  </div>
+
+  <script>
+    const roleCards = document.querySelectorAll(".role-card");
+    const selectedRoleText = document.getElementById("selectedRoleText");
+    const selectedRoleInput = document.getElementById("selectedRoleInput");
+
+    roleCards.forEach(function(card) {
+      card.addEventListener("click", function() {
+        roleCards.forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+        card.classList.add("active");
+
+        const role = card.getAttribute("data-role");
+        selectedRoleText.textContent = role;
+        selectedRoleInput.value = role;
+      });
+    });
+  </script>
+
+</body>
+</html>
