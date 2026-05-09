@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-header">
+      <div class="row">
+        <img src="/public/images/logo.png" alt="NyondoStock Logo" width="60px" height="40px" class="col-3">
+        <h4 class="fw-bold mb-1 col-9">NyondoStock</h4>
+      </div>
+
+      <p class="mb-0 text-secondary topuser">Sales Attendant</p>
+    </div>
+
+    <div class="sidebar-menu">
+      <a href="salesdashboard.html" class="sidebar-link active">
+        <i class="bi bi-grid"></i> Dashboard
+      </a>
+
+      <a href="recordsale.html" class="sidebar-link active">
+        <i class="bi bi-people"></i> Record Sale
+      </a>
+
+      <a href="stockcheck.html" class="sidebar-link">
+        <i class="bi bi-credit-card"></i> Stock Check
+      </a>
+
+      <a href="receipts.html" class="sidebar-link">
+        <i class="bi bi-truck"></i> Receipts
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="login.html" class="sidebar-link mb-0">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h3 class="fw-bold mb-0">Stock Check</h3>
+
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn border rounded-4 position-relative p-3">
+          <i class="bi bi-bell fs-4"></i>
+          <span
+            class="position-absolute top-0 end-0 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+        </button>
+
+        <button class="btn bg-light rounded-4 px-4 py-3 fw-bold">
+          <i class="bi bi-person me-2"></i> Sales User
+        </button>
+      </div>
+    </div>
+
+    <!-- SCROLLABLE CONTENT -->
+    <div class="content">
+
+      <!-- STOCK CHECK CONTENT -->
+
+<!-- Search Card -->
+<div class="card border-0 shadow-sm mb-4">
+  <div class="card-body p-4">
+    <div class="input-group input-group-lg">
+      <span class="input-group-text bg-white border-end-0">
+        <i class="bi bi-search text-secondary"></i>
+      </span>
+      <input
+        type="search"
+        name="stockSearch"
+        class="form-control border-start-0"
+        placeholder="Search products..."
+      >
+    </div>
+  </div>
+</div>
+
+<!-- Stock Cards -->
+<div class="row g-4">
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <div class="stock-check-icon">
+            <i class="bi bi-box-seam fs-3"></i>
+          </div>
+          <div>
+            <h4 class="fw-bold mb-1">Cement - 50kg</h4>
+            <p class="text-secondary mb-0">bags</p>
+          </div>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">2,400</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <div class="stock-check-icon">
+            <i class="bi bi-box-seam fs-3"></i>
+          </div>
+          <div>
+            <h4 class="fw-bold mb-1">Iron Bars - 12mm</h4>
+            <p class="text-secondary mb-0">pieces</p>
+          </div>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">850</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <div class="stock-check-icon">
+            <i class="bi bi-box-seam fs-3"></i>
+          </div>
+          <div>
+            <h4 class="fw-bold mb-1">Iron Bars - 16mm</h4>
+            <p class="text-secondary mb-0">pieces</p>
+          </div>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">450</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-start mb-4">
+          <div class="d-flex align-items-start gap-3">
+            <div class="stock-check-icon">
+              <i class="bi bi-box-seam fs-3"></i>
+            </div>
+            <div>
+              <h4 class="fw-bold mb-1">Iron Sheets</h4>
+              <p class="text-secondary mb-0">sheets</p>
+            </div>
+          </div>
+
+          <span class="badge bg-purple-soft purple-text px-3 py-2 rounded-pill">
+            <i class="bi bi-exclamation-circle me-1"></i>Low
+          </span>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">320</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <div class="stock-check-icon">
+            <i class="bi bi-box-seam fs-3"></i>
+          </div>
+          <div>
+            <h4 class="fw-bold mb-1">Nails - 3 inch</h4>
+            <p class="text-secondary mb-0">boxes</p>
+          </div>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">180</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-start mb-4">
+          <div class="d-flex align-items-start gap-3">
+            <div class="stock-check-icon">
+              <i class="bi bi-box-seam fs-3"></i>
+            </div>
+            <div>
+              <h4 class="fw-bold mb-1">Paint - 20L</h4>
+              <p class="text-secondary mb-0">buckets</p>
+            </div>
+          </div>
+
+          <span class="badge bg-purple-soft purple-text px-3 py-2 rounded-pill">
+            <i class="bi bi-exclamation-circle me-1"></i>Low
+          </span>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">45</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <div class="stock-check-icon">
+            <i class="bi bi-box-seam fs-3"></i>
+          </div>
+          <div>
+            <h4 class="fw-bold mb-1">Roofing Nails</h4>
+            <p class="text-secondary mb-0">boxes</p>
+          </div>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">92</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xl-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-start mb-4">
+          <div class="d-flex align-items-start gap-3">
+            <div class="stock-check-icon">
+              <i class="bi bi-box-seam fs-3"></i>
+            </div>
+            <div>
+              <h4 class="fw-bold mb-1">Wire Mesh</h4>
+              <p class="text-secondary mb-0">rolls</p>
+            </div>
+          </div>
+
+          <span class="badge bg-purple-soft purple-text px-3 py-2 rounded-pill">
+            <i class="bi bi-exclamation-circle me-1"></i>Low
+          </span>
+        </div>
+
+        <p class="text-secondary mb-2">Available Stock</p>
+        <h2 class="fw-bold mb-0">28</h2>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+  </main>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

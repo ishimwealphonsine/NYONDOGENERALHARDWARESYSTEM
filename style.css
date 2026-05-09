@@ -3,6 +3,7 @@ body {
   background-image: url(/public/images/landingimg.png);
   font-family: 'Inter', sans-serif;
   overflow: hidden;
+  font-size: 15px;
 }
 
 .topuser {
@@ -149,10 +150,11 @@ i {
 }
 
 .sidebar-link:hover,
-.sidebar-link.active {
+.sidebar-link.active:hover {
   background: #e728f1;
   color: #fff;
 }
+
 
 .sidebar-link i {
   font-size: 22px;
@@ -259,3 +261,167 @@ i {
 .purple-text {
   color: #e728f1;
 }
+
+.purpleBtns {
+  transition: 0.3s;
+}
+
+.purpleBtns:hover {
+  background-color: #530757 !important;
+}
+
+.purpleIcons:hover {
+  color: #530757;
+}
+
+/* transport charges */
+.purple-bg {
+  background: #e728f1;
+}
+
+.purple-text {
+  color: #e728f1;
+}
+
+.form-control:focus {
+  border-color: #e728f1;
+  box-shadow: 0 0 0 0.25rem rgba(231, 40, 241, 0.18);
+}
+
+/* deposit registration */
+.icon-square {
+  width: 70px;
+  height: 70px;
+}
+
+.purple-bg {
+  background: #e728f1;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #e728f1;
+  box-shadow: 0 0 0 0.25rem rgba(231, 40, 241, 0.18);
+}
+
+/* DEPOSIT TRACKING */
+.purple-bg {
+  background: #e728f1;
+}
+
+.purple-text {
+  color: #e728f1;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+  border-color: #e728f1;
+  box-shadow: 0 0 0 0.25rem rgba(231, 40, 241, 0.18);
+}
+
+/* Deposit Collection */
+.collection-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.purple-bg {
+  background: #e728f1;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #e728f1;
+  box-shadow: 0 0 0 0.25rem rgba(231, 40, 241, 0.18);
+}
+
+/* REPORTS */
+.report-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.small-report-icon {
+  width: 58px;
+  height: 58px;
+}
+
+.report-file-icon {
+  width: 68px;
+  height: 68px;
+}
+
+.purple-bg {
+  background: #e728f1;
+}
+
+.purple-text {
+  color: #e728f1;
+}
+
+.bg-purple-soft {
+  background: #fbe7ff;
+}
+
+.report-option {
+  display: block;
+  border: 2px solid #dee2e6;
+  border-radius: 14px;
+  padding: 24px;
+  cursor: pointer;
+}
+
+.report-option.active {
+  border-color: #e728f1;
+  background: #fff4ff;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #e728f1;
+  box-shadow: 0 0 0 0.25rem rgba(231, 40, 241, 0.18);
+}
+
+/* add stock */
+.icon {
+  width: 70px;
+  height: 70px;
+}
+
+.fa-plus {
+  font-size: 30px;
+}
+
+/* pricing */
+.pricing-icon {
+  width: 58px;
+  height: 58px;
+}
+
+.progress {
+  height: 10px;
+}
+
+.dashboard-icon {
+  width: 70px;
+  height: 70px;
+}
+
+/* check stock */
+.stock-check-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  background: #fbe7ff;
+  color: #e728f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-purple-soft {
+  background: #fbe7ff;
+}
+
+

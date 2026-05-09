@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accounts/Admin Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/e53d7a7b30.js" crossorigin="anonymous"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-header">
+      <div class="row">
+        <img src="/public/images/logo.png" alt="NyondoStock Logo" width="60px" height="40px" class="col-3">
+        <h4 class="fw-bold mb-1 col-9">NyondoStock</h4>
+      </div>
+
+      <p class="mb-0 text-secondary topuser">Store Manager</p>
+    </div>
+
+    <div class="sidebar-menu">
+     <a href="storedashboard.html" class="sidebar-link active">
+    <i class="bi bi-grid"></i> Dashboard
+  </a>
+
+  <a href="addstock.html" class="sidebar-link">
+    <i class="bi bi-box-seam-fill"></i> Add Stock
+  </a>
+
+  <a href="inventory.html" class="sidebar-link">
+    <i class="bi bi-box"></i> Inventory
+  </a>
+
+  <a href="pricing.html" class="sidebar-link">
+    <i class="bi bi-currency-dollar"></i> Pricing
+  </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="login.html" class="sidebar-link mb-0">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h3 class="fw-bold mb-0">Add Stock</h3>
+
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn border rounded-4 position-relative p-3">
+          <i class="bi bi-bell fs-4"></i>
+          <span
+            class="position-absolute top-0 end-0 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+        </button>
+
+        <button class="btn bg-light rounded-4 px-4 py-3 fw-bold">
+          <i class="bi bi-person me-2"></i> Stock Manager
+        </button>
+      </div>
+    </div>
+
+    <!-- SCROLLABLE CONTENT -->
+    <div class="content">
+
+      <!-- ADD STOCK CONTENT -->
+
+<div class="card border-0 shadow-sm">
+  <div class="card-body p-4">
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <div class="purple-bg text-white rounded-4 d-flex align-items-center justify-content-center icon">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <div>
+        <h3 class="fw-bold mb-1">Add New Stock</h3>
+        <p class="text-secondary mb-0">Record incoming inventory</p>
+      </div>
+    </div>
+
+    <form action="add-stock.html" method="POST">
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Product Type</label>
+        <select name="productType" class="form-select form-select-lg" required>
+          <option value="">Select product type...</option>
+          <option value="Cement">Cement</option>
+          <option value="Iron Bars">Iron Bars</option>
+          <option value="Iron Sheets">Iron Sheets</option>
+          <option value="Nails">Nails</option>
+          <option value="Wire Mesh">Wire Mesh</option>
+          <option value="Barbed Wire">Barbed Wire</option>
+          <option value="Wheelbarrow">Wheelbarrow</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Quantity</label>
+        <input
+          type="number"
+          name="quantity"
+          class="form-control form-control-lg"
+          placeholder="Enter quantity"
+          required
+        >
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Unit Cost (UGX)</label>
+        <input
+          type="number"
+          name="unitCost"
+          class="form-control form-control-lg"
+          placeholder="Enter cost per unit"
+          required
+        >
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Unit Price (UGX)</label>
+        <input
+          type="number"
+          name="unitPrice"
+          class="form-control form-control-lg"
+          placeholder="Enter selling price per unit"
+          required
+        >
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Supplier</label>
+        <input
+          type="text"
+          name="supplier"
+          class="form-control form-control-lg"
+          placeholder="Enter supplier name"
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn purple-bg purpleBtns text-white btn-lg fw-bold w-100 py-3">
+        Add Stock
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+    </div>
+
+  </main>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
