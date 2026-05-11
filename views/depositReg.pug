@@ -1,0 +1,103 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Accounts/Admin
+  .sidebar-menu
+    a.sidebar-link.active(href='admindashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='usermanagement.html')
+      i.bi.bi-people
+      |  User Management
+    a.sidebar-link(href='suppliercredit.html')
+      i.bi.bi-credit-card
+      |  Supplier Credit
+    a.sidebar-link(href='transport.html')
+      i.bi.bi-truck
+      |  Transport Charges
+    a.sidebar-link(href='depositReg.html')
+      i.bi.bi-person-plus
+      |  Deposit Registration
+    a.sidebar-link(href='depositTrack.html')
+      i.bi.bi-wallet2
+      |  Deposit Tracking
+    a.sidebar-link(href='depositCollect.html')
+      i.bi.bi-archive
+      |  Deposit Collection
+    a.sidebar-link(href='reports.html')
+      i.bi.bi-file-earmark-text
+      |  Reports
+    a.sidebar-link(href='analytics.html')
+      i.bi.bi-bar-chart
+      |  Analytics
+    a.sidebar-link(href='settings.html')
+      i.bi.bi-gear
+      |  Settings
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Deposit Registration
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Admin
+  // SCROLLABLE CONTENT
+  .content
+    // DEPOSIT REGISTRATION CONTENT
+    .card.border-0.shadow-sm
+      .card-body.p-4
+        .d-flex.align-items-center.gap-3.mb-4
+          .purple-bg.text-white.rounded-4.d-flex.align-items-center.justify-content-center.icon-square
+            i.bi.bi-person-plus.fs-3
+          div
+            h3.fw-bold.mb-1 Register Customer for Deposit Scheme
+            p.text-secondary.mb-0 Eligible products: Cement, Iron Sheets, Iron Bars
+        form(action='register-deposit-customer.html' method='POST')
+          .mb-4
+            label.form-label.fw-semibold Full Name (as per National ID)
+            input.form-control.form-control-lg(type='text' name='fullName' placeholder='Enter full name' required='')
+          .mb-4
+            label.form-label.fw-semibold National Identification Number (NIN)
+            input.form-control.form-control-lg(type='text' name='nin' placeholder='Enter NIN' minlength='14' maxlength='14' required='')
+          .mb-4
+            label.form-label.fw-semibold Phone Number
+            input.form-control.form-control-lg(type='tel' name='phoneNumber' placeholder='Enter phone number' required='')
+          .mb-4
+            label.form-label.fw-semibold Select Product
+            select.form-select.form-select-lg(name='selectedProduct' required='')
+              option(value='') Choose an eligible product...
+              option(value='Cement') Cement
+              option(value='Iron Sheets') Iron Sheets
+              option(value='Iron Bars') Iron Bars
+          .mb-4
+            label.form-label.fw-semibold Target Amount (UGX)
+            input.form-control.form-control-lg(type='number' name='targetAmount' placeholder='Enter target deposit amount' required='')
+            small.text-secondary The total amount customer wants to save for the product
+          .bg-light.rounded-4.p-4.mb-4
+            h4.fw-bold.mb-3 Deposit Scheme Information
+            p.text-secondary.mb-2 &bull; Customers can make incremental deposits towards eligible products
+            p.text-secondary.mb-2 &bull; Once target amount is reached, customer can collect the product
+            p.text-secondary.mb-2 &bull; All deposits are tracked and receipts are issued
+            p.text-secondary.mb-0 &bull; Eligible products: Cement, Iron Sheets, Iron Bars only
+          button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(type='submit')
+            | Register Customer

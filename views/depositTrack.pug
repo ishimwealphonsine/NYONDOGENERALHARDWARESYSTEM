@@ -1,0 +1,217 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Accounts/Admin
+  .sidebar-menu
+    a.sidebar-link.active(href='admindashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='usermanagement.html')
+      i.bi.bi-people
+      |  User Management
+    a.sidebar-link(href='suppliercredit.html')
+      i.bi.bi-credit-card
+      |  Supplier Credit
+    a.sidebar-link(href='transport.html')
+      i.bi.bi-truck
+      |  Transport Charges
+    a.sidebar-link(href='depositReg.html')
+      i.bi.bi-person-plus
+      |  Deposit Registration
+    a.sidebar-link(href='depositTrack.html')
+      i.bi.bi-wallet2
+      |  Deposit Tracking
+    a.sidebar-link(href='depositCollect.html')
+      i.bi.bi-archive
+      |  Deposit Collection
+    a.sidebar-link(href='reports.html')
+      i.bi.bi-file-earmark-text
+      |  Reports
+    a.sidebar-link(href='analytics.html')
+      i.bi.bi-bar-chart
+      |  Analytics
+    a.sidebar-link(href='settings.html')
+      i.bi.bi-gear
+      |  Settings
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Deposit Tracking
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Admin
+  // SCROLLABLE CONTENT
+  .content
+    // DEPOSIT TRACKING CONTENT
+    // Search Card
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        .input-group.input-group-lg
+          span.input-group-text.bg-white.border-end-0
+            i.bi.bi-search.text-secondary
+          input.form-control.border-start-0(type='search' name='depositSearch' placeholder='Search by name, NIN, or phone...')
+    // Deposit Customer Cards
+    .row.g-4
+      // Customer 1
+      .col-lg-6
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            h4.fw-bold.mb-1 Alice Nakato
+            p.text-secondary.mb-0 NIN: CM123456789
+            p.text-secondary.mb-4 Phone: 0700123456
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product
+              h5.fw-bold.mb-0 Cement - 50kg
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Target Amount
+              strong 3,500,000 UGX
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Current Balance
+              strong.purple-text 2,800,000 UGX
+            .d-flex.justify-content-between.mb-2
+              span.text-secondary Progress
+              strong.purple-text 80%
+            .progress.rounded-pill.mb-4
+              .progress-bar.purple-bg.rounded-pill(style='width: 80%;')
+            .d-flex.justify-content-between.mb-4
+              span.text-secondary Remaining
+              strong 700,000 UGX
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#recordPaymentModal')
+              i.bi.bi-plus-lg.me-2
+              | Record Payment
+      // Customer 2
+      .col-lg-6
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            h4.fw-bold.mb-1 Brian Okoth
+            p.text-secondary.mb-0 NIN: CM987654321
+            p.text-secondary.mb-4 Phone: 0700987654
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product
+              h5.fw-bold.mb-0 Iron Sheets
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Target Amount
+              strong 5,600,000 UGX
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Current Balance
+              strong.purple-text 4,200,000 UGX
+            .d-flex.justify-content-between.mb-2
+              span.text-secondary Progress
+              strong.purple-text 75%
+            .progress.rounded-pill.mb-4
+              .progress-bar.purple-bg.rounded-pill(style='width: 75%;')
+            .d-flex.justify-content-between.mb-4
+              span.text-secondary Remaining
+              strong 1,400,000 UGX
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#recordPaymentModal')
+              i.bi.bi-plus-lg.me-2
+              | Record Payment
+      // Customer 3
+      .col-lg-6
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-start
+              div
+                h4.fw-bold.mb-1 Catherine Auma
+                p.text-secondary.mb-0 NIN: CM456789123
+                p.text-secondary.mb-4 Phone: 0700456789
+              span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill
+                | Ready
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product
+              h5.fw-bold.mb-0 Iron Bars - 12mm
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Target Amount
+              strong 2,800,000 UGX
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Current Balance
+              strong.purple-text 2,800,000 UGX
+            .d-flex.justify-content-between.mb-2
+              span.text-secondary Progress
+              strong.purple-text 100%
+            .progress.rounded-pill.mb-4
+              .progress-bar.purple-bg.rounded-pill(style='width: 100%;')
+            .d-flex.justify-content-between.mb-4
+              span.text-secondary Remaining
+              strong 0 UGX
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#recordPaymentModal')
+              i.bi.bi-plus-lg.me-2
+              | Record Payment
+      // Customer 4
+      .col-lg-6
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            h4.fw-bold.mb-1 Daniel Musoke
+            p.text-secondary.mb-0 NIN: CM789123456
+            p.text-secondary.mb-4 Phone: 0700789123
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product
+              h5.fw-bold.mb-0 Cement - 50kg
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Target Amount
+              strong 7,000,000 UGX
+            .d-flex.justify-content-between.mb-3
+              span.text-secondary Current Balance
+              strong.purple-text 3,500,000 UGX
+            .d-flex.justify-content-between.mb-2
+              span.text-secondary Progress
+              strong.purple-text 50%
+            .progress.rounded-pill.mb-4
+              .progress-bar.purple-bg.rounded-pill(style='width: 50%;')
+            .d-flex.justify-content-between.mb-4
+              span.text-secondary Remaining
+              strong 3,500,000 UGX
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#recordPaymentModal')
+              i.bi.bi-plus-lg.me-2
+              | Record Payment
+    // RECORD PAYMENT MODAL
+    #recordPaymentModal.modal.fade(tabindex='-1' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered
+        .modal-content.border-0.rounded-4
+          .modal-body.p-4.p-md-5
+            h3.fw-bold.mb-4 Record Deposit Payment
+            form(action='record-deposit-payment.html' method='POST')
+              .mb-3
+                label.form-label.fw-semibold Customer Name
+                input.form-control.form-control-lg(type='text' name='customerName' placeholder='Enter customer name' required='')
+              .mb-3
+                label.form-label.fw-semibold Payment Amount (UGX)
+                input.form-control.form-control-lg(type='number' name='paymentAmount' placeholder='Enter amount paid' required='')
+              .mb-3
+                label.form-label.fw-semibold Payment Method
+                select.form-select.form-select-lg(name='paymentMethod' required='')
+                  option(value='') Select payment method
+                  option(value='Cash') Cash
+                  option(value='Mobile Money') Mobile Money
+                  option(value='Bank Transfer') Bank Transfer
+              .mb-4
+                label.form-label.fw-semibold Receipt Note
+                textarea.form-control(name='receiptNote' rows='3' placeholder='Optional note')
+              .row.g-3
+                .col-6
+                  button.btn.btn-outline-secondary.w-100.py-3.fw-bold(type='button' data-bs-dismiss='modal')
+                    | Cancel
+                .col-6
+                  button.btn.purple-bg.text-white.w-100.py-3.fw-bold(type='submit')
+                    | Save Payment

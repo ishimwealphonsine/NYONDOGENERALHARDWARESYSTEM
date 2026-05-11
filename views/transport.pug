@@ -1,0 +1,236 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Accounts/Admin
+  .sidebar-menu
+    a.sidebar-link.active(href='admindashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='usermanagement.html')
+      i.bi.bi-people
+      |  User Management
+    a.sidebar-link(href='suppliercredit.html')
+      i.bi.bi-credit-card
+      |  Supplier Credit
+    a.sidebar-link(href='transport.html')
+      i.bi.bi-truck
+      |  Transport Charges
+    a.sidebar-link(href='depositReg.html')
+      i.bi.bi-person-plus
+      |  Deposit Registration
+    a.sidebar-link(href='depositTrack.html')
+      i.bi.bi-wallet2
+      |  Deposit Tracking
+    a.sidebar-link(href='depositCollect.html')
+      i.bi.bi-archive
+      |  Deposit Collection
+    a.sidebar-link(href='reports.html')
+      i.bi.bi-file-earmark-text
+      |  Reports
+    a.sidebar-link(href='analytics.html')
+      i.bi.bi-bar-chart
+      |  Analytics
+    a.sidebar-link(href='settings.html')
+      i.bi.bi-gear
+      |  Settings
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Transport Charges
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Admin
+  // SCROLLABLE CONTENT
+  .content
+    // TRANSPORT CHARGES CONTENT
+    // Summary Cards
+    .row.g-4.mb-4
+      .col-md-4
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            .d-flex.align-items-center.gap-3.mb-3
+              .purple-bg.text-white.rounded-4.d-flex.align-items-center.justify-content-center(style='width:58px;height:58px;')
+                i.bi.bi-truck.fs-3
+              p.text-secondary.mb-0.fs-5 Total Income
+            h2.fw-bold.mb-0 120,000 UGX
+      .col-md-4
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            p.text-secondary.mb-2.fs-5 Paid Deliveries
+            h2.fw-bold.mb-2 4
+            p.text-secondary.mb-0 30,000 UGX each
+      .col-md-4
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            p.text-secondary.mb-2.fs-5 Free Deliveries
+            h2.fw-bold.text-success.mb-2 2
+            p.text-secondary.mb-0 &ge; 500,000 UGX within 10km
+    // Transport Income Chart
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        h4.fw-bold.mb-4 Transport Income Trend
+        canvas#transportIncomeChart(height='115')
+    // Filter Card
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        form.row.g-3.align-items-center(action='transport-charges.html' method='GET')
+          .col-auto
+            i.bi.bi-calendar3.fs-4.text-secondary
+          .col-md-auto
+            label.fw-bold.me-2 From:
+          .col-md-3
+            input.form-control.form-control-lg(type='text' name='fromDate' value='01/05/2026')
+          .col-md-auto
+            label.fw-bold.me-2 To:
+          .col-md-3
+            input.form-control.form-control-lg(type='text' name='toDate' value='06/05/2026')
+          .col-md-auto
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.px-4(type='submit')
+              | Filter
+    // Transport Charge Details Table
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-0
+        .p-4.border-bottom
+          h4.fw-bold.mb-0 Transport Charge Details
+        .table-responsive
+          table.table.align-middle.mb-0
+            thead.table-light
+              tr
+                th.px-4.py-3.text-uppercase Receipt ID
+                th.px-4.py-3.text-uppercase Customer
+                th.px-4.py-3.text-uppercase Distance (KM)
+                th.px-4.py-3.text-uppercase Charge
+                th.px-4.py-3.text-uppercase Date
+            tbody
+              tr
+                td.px-4.py-4.fw-semibold RC001
+                td.px-4.py-4.text-secondary John Doe
+                td.px-4.py-4.text-secondary 15 km
+                td.px-4.py-4.fw-bold 30,000 UGX
+                td.px-4.py-4.text-secondary 2026-05-06
+              tr
+                td.px-4.py-4.fw-semibold RC003
+                td.px-4.py-4.text-secondary Mike Johnson
+                td.px-4.py-4.text-secondary 8 km
+                td.px-4.py-4.fw-bold.text-success FREE
+                td.px-4.py-4.text-secondary 2026-05-06
+              tr
+                td.px-4.py-4.fw-semibold RC004
+                td.px-4.py-4.text-secondary Sarah Wilson
+                td.px-4.py-4.text-secondary 12 km
+                td.px-4.py-4.fw-bold 30,000 UGX
+                td.px-4.py-4.text-secondary 2026-05-06
+              tr
+                td.px-4.py-4.fw-semibold RC006
+                td.px-4.py-4.text-secondary Lisa Anderson
+                td.px-4.py-4.text-secondary 18 km
+                td.px-4.py-4.fw-bold 30,000 UGX
+                td.px-4.py-4.text-secondary 2026-05-05
+              tr
+                td.px-4.py-4.fw-semibold RC007
+                td.px-4.py-4.text-secondary Robert Taylor
+                td.px-4.py-4.text-secondary 9 km
+                td.px-4.py-4.fw-bold.text-success FREE
+                td.px-4.py-4.text-secondary 2026-05-05
+              tr
+                td.px-4.py-4.fw-semibold RC008
+                td.px-4.py-4.text-secondary Emily Davis
+                td.px-4.py-4.text-secondary 22 km
+                td.px-4.py-4.fw-bold 30,000 UGX
+                td.px-4.py-4.text-secondary 2026-05-05
+script(src='https://cdn.jsdelivr.net/npm/chart.js')
+script.
+  const transportCtx = document.getElementById("transportIncomeChart");
+  new Chart(transportCtx, {
+  type: "line",
+  data: {
+  labels: ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6"],
+  datasets: [{
+  label: "income",
+  data: [120000, 90000, 150000, 60000, 90000, 90000],
+  borderColor: "#e728f1",
+  backgroundColor: "rgba(231, 40, 241, 0.12)",
+  borderWidth: 4,
+  tension: 0.45,
+  pointRadius: 5,
+  pointHoverRadius: 8,
+  pointBackgroundColor: "#ffffff",
+  pointBorderColor: "#e728f1",
+  pointBorderWidth: 3,
+  fill: false
+  }]
+  },
+  options: {
+  responsive: true,
+  animation: {
+  duration: 1600,
+  easing: "easeOutQuart"
+  },
+  interaction: {
+  mode: "index",
+  intersect: false
+  },
+  plugins: {
+  legend: {
+  display: true,
+  position: "bottom",
+  labels: {
+  color: "#e728f1",
+  font: {
+  size: 16
+  }
+  }
+  },
+  tooltip: {
+  enabled: true,
+  backgroundColor: "#000000",
+  titleColor: "#ffffff",
+  bodyColor: "#ffffff",
+  padding: 12,
+  callbacks: {
+  label: function (context) {
+  return "Income: " + context.raw.toLocaleString() + " UGX";
+  }
+  }
+  }
+  },
+  scales: {
+  y: {
+  beginAtZero: true,
+  suggestedMax: 160000,
+  ticks: {
+  stepSize: 40000
+  },
+  grid: {
+  borderDash: [5, 5]
+  }
+  },
+  x: {
+  grid: {
+  borderDash: [5, 5]
+  }
+  }
+  }
+  }
+  });

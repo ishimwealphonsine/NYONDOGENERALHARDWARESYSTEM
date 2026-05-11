@@ -2,69 +2,82 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Add New Product
-  link(rel='stylesheet' href='/css/style.css')
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB' crossorigin='anonymous')
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
   script(src='https://kit.fontawesome.com/e53d7a7b30.js' crossorigin='anonymous')
-// Modal
-.modal.fade.show.d-block(tabindex='-1')
-  .modal-dialog.modal-lg.addnewproductpage
-    .modal-content.bg-light
-      form(action='/add-stock' method='post')
-        // Header
-        .modal-header.border-bottom
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Store Manager
+  .sidebar-menu
+    a.sidebar-link.active(href='storedashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link(href='addstock.html')
+      i.bi.bi-box-seam-fill
+      |  Add Stock
+    a.sidebar-link(href='inventory.html')
+      i.bi.bi-box
+      |  Inventory
+    a.sidebar-link(href='pricing.html')
+      i.bi.bi-currency-dollar
+      |  Pricing
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Add Stock
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Stock Manager
+  // SCROLLABLE CONTENT
+  .content
+    // ADD STOCK CONTENT
+    .card.border-0.shadow-sm
+      .card-body.p-4
+        .d-flex.align-items-center.gap-3.mb-4
+          .purple-bg.text-white.rounded-4.d-flex.align-items-center.justify-content-center.icon
+            i.fa-solid.fa-plus
           div
-            h5.modal-title.text-dark.fw-bold
-              span.bg-primary.text-light.px-2.py-1.rounded.me-2 +
-              |                 Add New Product
-            small.text-muted
-              | Register a new item into the hardware inventory system.
-          button.btn-close.btn-purple(type='button')
-        // Body
-        .modal-body
-          // Product Name
-          .mb-3
-            label.form-label.text-dark(for='product_name') Product Name *
-            input#product_name.form-control(type='text' name='productName' placeholder='e.g., Heavy Duty Cement Mixer 200L' required='')
-          // Row
-          .row
-            .col-md-6.mb-3
-              label.form-label.text-dark(for='category') Category *
-              select#category.form-control(name='category' required='')
-                option(value='Construction Tools') Construction Tools
-            .col-md-6.mb-3
-              label.form-label.text-dark(for='supplier') Supplier Name
-              select#supplier.form-control(type='text' name='supplier')
-                option(value='') Select supplier
-          // Row
-          .row
-            .col-md-6.mb-3
-              label.form-label.text-dark(for='initial_stock_quantity')
-                | Stock Quantity *
-              input#initial_stock_quantity.form-control(type='number' name='stockQuantity' placeholder='0' min='0' required='')
-            .col-md-6.mb-3
-              label.form-label.text-dark(for='date_received') Date Received *
-              input#date_received.form-control(type='date' name='dateReceived' required='')
-          hr
-          // Pricing
-          h6.text-dark.fw-bold
-            | PRICING DETAILS
-            span.badge.bg-light.text-dark Currency: UGX
-          .row.mt-2
-            .col-md-6.mb-3
-              label.form-label.text-dark(for='costPrice')
-                | Cost Price Buying *
-              input#cost_price.form-control(type='number' name='costPrice' placeholder='UGX 0.00' min='0' required='')
-            .col-md-6.mb-3
-              label.form-label.text-dark(for='sellingPrice')
-                | Selling Price Retail *
-              input#selling_price.form-control(type='number' name='sellingPrice' placeholder='UGX 0.00' min='0' required='')
-        
-        .modal-footer.d-flex.justify-content-between
-          small.text-muted
-            | Fields marked with * are required
-          div
-            button.btn.btn-outline-dark(type='cancel')
-              | Cancel
-            button.btn-purple(type='submit')
-              | Add Product
+            h3.fw-bold.mb-1 Add New Stock
+            p.text-secondary.mb-0 Record incoming inventory
+        form(action='add-stock.html' method='POST')
+          .mb-4
+            label.form-label.fw-semibold Product Type
+            select.form-select.form-select-lg(name='productType' required='')
+              option(value='') Select product type...
+              option(value='Cement') Cement
+              option(value='Iron Bars') Iron Bars
+              option(value='Iron Sheets') Iron Sheets
+              option(value='Nails') Nails
+              option(value='Wire Mesh') Wire Mesh
+              option(value='Barbed Wire') Barbed Wire
+              option(value='Wheelbarrow') Wheelbarrow
+          .mb-4
+            label.form-label.fw-semibold Quantity
+            input.form-control.form-control-lg(type='number' name='quantity' placeholder='Enter quantity' required='')
+          .mb-4
+            label.form-label.fw-semibold Unit Cost (UGX)
+            input.form-control.form-control-lg(type='number' name='unitCost' placeholder='Enter cost per unit' required='')
+          .mb-4
+            label.form-label.fw-semibold Unit Price (UGX)
+            input.form-control.form-control-lg(type='number' name='unitPrice' placeholder='Enter selling price per unit' required='')
+          .mb-4
+            label.form-label.fw-semibold Supplier
+            input.form-control.form-control-lg(type='text' name='supplier' placeholder='Enter supplier name' required='')
+          button.btn.purple-bg.purpleBtns.text-white.btn-lg.fw-bold.w-100.py-3(type='submit')
+            | Add Stock

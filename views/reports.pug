@@ -1,0 +1,224 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Accounts/Admin
+  .sidebar-menu
+    a.sidebar-link.active(href='admindashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='usermanagement.html')
+      i.bi.bi-people
+      |  User Management
+    a.sidebar-link(href='suppliercredit.html')
+      i.bi.bi-credit-card
+      |  Supplier Credit
+    a.sidebar-link(href='transport.html')
+      i.bi.bi-truck
+      |  Transport Charges
+    a.sidebar-link(href='depositReg.html')
+      i.bi.bi-person-plus
+      |  Deposit Registration
+    a.sidebar-link(href='depositTrack.html')
+      i.bi.bi-wallet2
+      |  Deposit Tracking
+    a.sidebar-link(href='depositCollect.html')
+      i.bi.bi-archive
+      |  Deposit Collection
+    a.sidebar-link(href='reports.html')
+      i.bi.bi-file-earmark-text
+      |  Reports
+    a.sidebar-link(href='analytics.html')
+      i.bi.bi-bar-chart
+      |  Analytics
+    a.sidebar-link(href='settings.html')
+      i.bi.bi-gear
+      |  Settings
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Reports
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Admin
+  // SCROLLABLE CONTENT
+  .content
+    // REPORTS CONTENT
+    // Generate Report Card
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        .d-flex.align-items-center.gap-3.mb-4
+          .purple-bg.text-white.rounded-4.d-flex.align-items-center.justify-content-center.report-icon
+            i.bi.bi-file-earmark-text.fs-3
+          div
+            h3.fw-bold.mb-1 Generate Report
+            p.text-secondary.mb-0 Export comprehensive business reports
+        form(action='generate-report.html' method='POST')
+          // Report Types
+          .row.g-3.mb-4
+            .col-lg-6
+              label.report-option.active.w-100
+                input(type='radio' name='reportType' value='Sales Report' checked='' hidden='')
+                .d-flex.align-items-center.gap-3
+                  .purple-bg.text-white.rounded-3.d-flex.align-items-center.justify-content-center.small-report-icon
+                    i.bi.bi-bar-chart.fs-4
+                  div
+                    h5.fw-bold.report-title.purple-text.mb-1 Sales Report
+                    p.text-secondary.fw-semibold.mb-0 Revenue, transactions, and product performance
+            .col-lg-6
+              label.report-option.w-100
+                input(type='radio' name='reportType' value='Credit Report' hidden='')
+                .d-flex.align-items-center.gap-3
+                  .bg-light.text-secondary.rounded-3.d-flex.align-items-center.justify-content-center.small-report-icon
+                    i.bi.bi-credit-card.fs-4
+                  div
+                    h5.fw-bold.report-title.mb-1 Credit Report
+                    p.text-secondary.fw-semibold.mb-0 Supplier credits, payments, and outstanding amounts
+            .col-lg-6
+              label.report-option.w-100
+                input(type='radio' name='reportType' value='Deposit Scheme Report' hidden='')
+                .d-flex.align-items-center.gap-3
+                  .bg-light.text-secondary.rounded-3.d-flex.align-items-center.justify-content-center.small-report-icon
+                    i.bi.bi-wallet2.fs-4
+                  div
+                    h5.fw-bold.report-title.mb-1 Deposit Scheme Report
+                    p.text-secondary.fw-semibold.mb-0 Customer deposits, collections, and balances
+            .col-lg-6
+              label.report-option.w-100
+                input(type='radio' name='reportType' value='Transport Report' hidden='')
+                .d-flex.align-items-center.gap-3
+                  .bg-light.text-secondary.rounded-3.d-flex.align-items-center.justify-content-center.small-report-icon
+                    i.bi.bi-file-earmark-text.fs-4
+                  div
+                    h5.fw-bold.report-title.mb-1 Transport Report
+                    p.text-secondary.fw-semibold.mb-0 Delivery charges and transport income
+          // Date Range
+          .bg-light.rounded-4.p-4.mb-4
+            .d-flex.align-items-center.gap-3.mb-4
+              i.bi.bi-calendar3.fs-4.text-secondary
+              h4.fw-bold.mb-0 Select Date Range
+            .row.g-3
+              .col-md-6
+                label.form-label.fw-semibold Start Date
+                input.form-control.form-control-lg(type='text' name='startDate' value='01/05/2026' required='')
+              .col-md-6
+                label.form-label.fw-semibold End Date
+                input.form-control.form-control-lg(type='text' name='endDate' value='06/05/2026' required='')
+          // Export Format
+          .mb-4
+            label.form-label.fw-semibold.d-block.mb-3 Export Format
+            .form-check.form-check-inline
+              input#pdfFormat.form-check-input(type='radio' name='exportFormat' value='PDF' checked='')
+              label.form-check-label(for='pdfFormat') PDF
+            .form-check.form-check-inline
+              input#excelFormat.form-check-input(type='radio' name='exportFormat' value='Excel')
+              label.form-check-label(for='excelFormat') Excel
+          button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(type='submit')
+            i.bi.bi-download.me-2
+            | Generate &amp; Download Report
+    // Recent Reports
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-0
+        .p-4.border-bottom
+          h4.fw-bold.mb-0 Recent Reports
+        .list-group.list-group-flush
+          .list-group-item.px-4.py-4
+            .d-flex.flex-wrap.justify-content-between.align-items-center.gap-3
+              .d-flex.align-items-center.gap-3
+                .bg-purple-soft.purple-text.rounded-4.d-flex.align-items-center.justify-content-center.report-file-icon
+                  i.bi.bi-file-earmark-text.fs-3
+                div
+                  h5.fw-bold.mb-1 May 2026 Sales Report
+                  p.text-secondary.mb-0 Generated: 2026-05-01 &bull; 2.4 MB
+              button.btn.btn-outline-secondary.btn-lg.fw-bold.px-4
+                i.bi.bi-download.me-2
+                | Download
+          .list-group-item.px-4.py-4
+            .d-flex.flex-wrap.justify-content-between.align-items-center.gap-3
+              .d-flex.align-items-center.gap-3
+                .bg-purple-soft.purple-text.rounded-4.d-flex.align-items-center.justify-content-center.report-file-icon
+                  i.bi.bi-file-earmark-text.fs-3
+                div
+                  h5.fw-bold.mb-1 Q1 2026 Credit Summary
+                  p.text-secondary.mb-0 Generated: 2026-04-01 &bull; 1.8 MB
+              button.btn.btn-outline-secondary.btn-lg.fw-bold.px-4
+                i.bi.bi-download.me-2
+                | Download
+          .list-group-item.px-4.py-4.bg-light
+            .d-flex.flex-wrap.justify-content-between.align-items-center.gap-3
+              .d-flex.align-items-center.gap-3
+                .bg-purple-soft.purple-text.rounded-4.d-flex.align-items-center.justify-content-center.report-file-icon
+                  i.bi.bi-file-earmark-text.fs-3
+                div
+                  h5.fw-bold.mb-1 April Deposit Scheme
+                  p.text-secondary.mb-0 Generated: 2026-04-30 &bull; 980 KB
+              button.btn.btn-outline-secondary.btn-lg.fw-bold.px-4
+                i.bi.bi-download.me-2
+                | Download
+          .list-group-item.px-4.py-4
+            .d-flex.flex-wrap.justify-content-between.align-items-center.gap-3
+              .d-flex.align-items-center.gap-3
+                .bg-purple-soft.purple-text.rounded-4.d-flex.align-items-center.justify-content-center.report-file-icon
+                  i.bi.bi-file-earmark-text.fs-3
+                div
+                  h5.fw-bold.mb-1 Weekly Transport Report
+                  p.text-secondary.mb-0 Generated: 2026-05-05 &bull; 450 KB
+              button.btn.btn-outline-secondary.btn-lg.fw-bold.px-4
+                i.bi.bi-download.me-2
+                | Download
+    // Report Summary Cards
+    .row.g-4.mb-4
+      .col-md-4
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            p.text-secondary.mb-2.fs-5 Reports Generated
+            h2.fw-bold.mb-2 847
+            p.text-secondary.mb-0 All time
+      .col-md-4
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            p.text-secondary.mb-2.fs-5 This Month
+            h2.fw-bold.purple-text.mb-2 42
+            p.text-secondary.mb-0 May 2026
+      .col-md-4
+        .card.border-0.shadow-sm.h-100
+          .card-body.p-4
+            p.text-secondary.mb-2.fs-5 Most Generated
+            h2.fw-bold.mb-2 Sales
+            p.text-secondary.mb-0 Report type
+script.
+  const reportOptions = document.querySelectorAll(".report-option");
+  reportOptions.forEach(function (option) {
+  option.addEventListener("click", function () {
+  reportOptions.forEach(function (item) {
+  item.classList.remove("active");
+  const title = item.querySelector(".report-title");
+  if (title) title.classList.remove("purple-text");
+  });
+  option.classList.add("active");
+  const selectedTitle = option.querySelector(".report-title");
+  if (selectedTitle) selectedTitle.classList.add("purple-text");
+  const radioInput = option.querySelector("input[type='radio']");
+  if (radioInput) radioInput.checked = true;
+  });
+  });

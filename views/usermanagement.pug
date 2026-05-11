@@ -2,309 +2,185 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Stock Management
-  link(rel='stylesheet' href='../static/css/style.css')
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB' crossorigin='anonymous')
-  script(src='https://kit.fontawesome.com/e53d7a7b30.js' crossorigin='anonymous')
-.container-fluid
-  .row.overallbox.input-group.input-group-lg
-    .col-3.bg-light.sidebar.d-flex.flex-column
-      // <div class="d-flex">
-      // Sidebar
-      // Logo
-      h5.text-dark.mb-4.mt-3
-        span.text-light.px-2.py-1.rounded
-          img#logo(src='../static/images/NyondoStockLogo.png' alt='NyondoStock Logo')
-        strong NyondoStock
-      // Menu
-      ul.nav.flex-column
-        li.nav-item.mb-2
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-table-cells
-            | Dashboard
-        // Active
-        li.nav-item.mb-2
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-arrow-trend-up
-            |               Stock Management
-        li.nav-item.mb-2
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-cart-shopping
-            | Sales
-        li.nav-item.mb-2
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-credit-card
-            | Supplier Credit
-        li.nav-item.mb-2
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-piggy-bank
-            | Deposit Scheme
-        li.nav-item.mb-2
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-chart-bar
-            | Reports
-        li.nav-item.mb-4
-          a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-            i.fa-solid.fa-users
-            | Users
-      // Bottom section
-      .mt-auto
-        hr
-        ul.nav.flex-column
-          li.nav-item
-            a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-              i.fa-solid.fa-gear
-              | Settings
-          li.nav-item
-            a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-              i.fa-regular.fa-circle-question
-              | Help Center
-          li.nav-item
-            a.nav-link.text-dark.rounded.link-light.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='#')
-              i.fa-solid.fa-arrow-right-from-bracket
-              | Logout
-    // ------------------------------------main content--------------------------------------------
-    .col-9.bg-light.main-content
-      // Top Bar
-      .bg-light.p-3.border-bottom.d-flex.justify-content-between.align-items-center
-        // Search
-        input.form-control.w-50(type='text' placeholder='Search products...')
-        // Right side
-        .d-flex.align-items-center.gap-3
-          // Notification
-          .position-relative
-            span.fs-5 &#x1F514;
-            span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-success.text-light
-              | 5
-          // User
-          .d-flex.align-items-center.gap-2
-            img.rounded-circle(src='/css/images/me-2.png' width='35')
-            div
-              .text-dark.fw-bold Ishimwe Alphonsine
-              small.text-muted Stock Manager
-      // Page Header
-      .p-4.bg-light
-        .d-flex.justify-content-between.align-items-center.mb-4
-          // Title
-          div
-            h3.text-dark.fw-bold Stock Management
-            p.text-muted.mb-0
-              | Manage and monitor all hardware inventory levels.
-          // Buttons
-          .d-flex.gap-2
-            button.btn.btn-outline-dark
-              i.fa-solid.fa-download
-              |                 Export
-            a.addproductbtn(href='addnewproduct.html')
-              button.btn.bg-success.text-light
-                i.fa-solid.fa-plus
-                |                   Add Product
-        // Cards
-        .d-flex.g-3.justify-content-between.gap-3
-          // Card 1
-          .col-md
-            .card.p-3.border-0
-              small.text-muted Total Products
-              h4.text-dark 120
-              small.text-muted +4 added this week
-          // Card 2
-          .col-md
-            .card.p-3.border-0
-              small.text-muted Total Stock Units
-              h4.text-dark 8,540
-              small.text-muted Across 8 categories
-          // Card 3
-          .col-md
-            .card.p-3.border-0
-              small.text-muted Stock Value
-              h4.text-dark UGX 45.2M
-              small.text-muted Estimated cost basis
-          // Card 4
-          .col-md
-            .card.p-3.border-0
-              small.text-muted Low Stock Items
-              h4.text-dark 12
-              small.text-muted Requires attention
-          // Card 5
-          .col-md
-            .card.p-3.border-0
-              small.text-muted Out of Stock
-              h4.text-dark 5
-              small.text-muted Immediate restock needed
-        // Table
-        .bg-light.p-4.inventory-table.mt-5
-          // Header
-          .d-flex.justify-content-between.align-items-center.mb-3
-            div
-              h5.text-dark.fw-bold.mb-0 Inventory List
-              small.text-muted Comprehensive list of all products in store
-            button.btn.btn-outline-dark.btn-sm &#x1F4C4; View History
-          // Filters
-          .d-flex.gap-2.mb-3
-            input.form-control(type='text' placeholder='Filter by product name...')
-            button.btn.btn-outline-dark &#x26B2;
-            input.form-control(type='text' placeholder='Category')
-            input.form-control(type='text' placeholder='Status')
-          // Table
-          .card.border-0.shadow-sm
-            .table-responsive
-              table.table.align-middle.mb-0
-                thead.bg-light
-                  tr.text-dark
-                    th Product ID
-                    th Product Name
-                    th Category
-                    th Qty
-                    th Cost (UGX)
-                    th Price (UGX)
-                    th Status
-                    th Actions
-                tbody
-                  tr
-                    td PRD-001
-                    td Cement 50kg (Simba)
-                    td
-                      span.badge.bg-light.text-dark Masonry
-                    td 450
-                    td 32,000
-                    td 38,000
-                    td
-                      span.text-success In Stock
-                    td &vellip;
-                  tr
-                    td PRD-002
-                    td Steel Rods 12mm
-                    td
-                      span.badge.bg-light.text-dark Metal
-                    td 12
-                    td 45,000
-                    td 52,000
-                    td
-                      span.text-warning Low Stock
-                    td &vellip;
-                  tr
-                    td PRD-003
-                    td PVC Pipe 4&quot;
-                    td
-                      span.badge.bg-light.text-dark Plumbing
-                    td 85
-                    td 15,000
-                    td 19,500
-                    td
-                      span.text-success In Stock
-                    td &vellip;
-                  tr.bg-light
-                    td PRD-004
-                    td Roofing Nails 2&quot;
-                    td
-                      span.badge.bg-light.text-dark Fasteners
-                    td 0
-                    td 5,000
-                    td 7,500
-                    td
-                      span.badge.bg-danger.text-light Out of Stock
-                    td &vellip;
-                  tr
-                    td PRD-005
-                    td Copper Wire 2.5mm
-                    td
-                      span.badge.bg-light.text-dark Electrical
-                    td 120
-                    td 120,000
-                    td 145,000
-                    td
-                      span.text-success In Stock
-                    td &vellip;
-                  tr
-                    td PRD-006
-                    td Paint - White Silk 20L
-                    td
-                      span.badge.bg-light.text-dark Finishes
-                    td 8
-                    td 180,000
-                    td 210,000
-                    td
-                      span.text-warning Low Stock
-                    td &vellip;
-          // Footer
-          .d-flex.justify-content-between.align-items-center.mt-3
-            small.text-muted Showing 1-6 of 120 products
-            .d-flex.gap-1
-              button.btn.btn-outline-dark.btn-sm Previous
-              button.btn.bg-success.text-light.btn-sm 1
-              button.btn.btn-outline-dark.btn-sm 2
-              button.btn.btn-outline-dark.btn-sm 3
-              button.btn.btn-outline-dark.btn-sm ...
-              button.btn.btn-outline-dark.btn-sm 20
-              button.btn.btn-outline-dark.btn-sm Next
-        // Charts Section
-        .bg-light.p-4.mt-5.chart-section
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Accounts/Admin
+  .sidebar-menu
+    a.sidebar-link.active(href='admindashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='usermanagement.html')
+      i.bi.bi-people
+      |  User Management
+    a.sidebar-link(href='suppliercredit.html')
+      i.bi.bi-credit-card
+      |  Supplier Credit
+    a.sidebar-link(href='transport.html')
+      i.bi.bi-truck
+      |  Transport Charges
+    a.sidebar-link(href='depositReg.html')
+      i.bi.bi-person-plus
+      |  Deposit Registration
+    a.sidebar-link(href='depositTrack.html')
+      i.bi.bi-wallet2
+      |  Deposit Tracking
+    a.sidebar-link(href='depositCollect.html')
+      i.bi.bi-archive
+      |  Deposit Collection
+    a.sidebar-link(href='reports.html')
+      i.bi.bi-file-earmark-text
+      |  Reports
+    a.sidebar-link(href='analytics.html')
+      i.bi.bi-bar-chart
+      |  Analytics
+    a.sidebar-link(href='settings.html')
+      i.bi.bi-gear
+      |  Settings
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 User Management
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Admin
+  // SCROLLABLE CONTENT
+  .content
+    // USER MANAGEMENT CONTENT
+    // Search + Create User
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        .row.g-3.align-items-center
+          .col-lg-9
+            .input-group.input-group-lg
+              span.input-group-text.bg-white.border-end-0
+                i.bi.bi-search.text-secondary
+              input.form-control.border-start-0(type='search' placeholder='Search users...' name='searchUser')
+          .col-lg-3.d-grid
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.purpleBtns(data-bs-toggle='modal' data-bs-target='#createUserModal')
+              i.bi.bi-person-plus.me-2
+              | Create User
+    // All Users Table
+    .card.border-0.shadow-sm
+      .card-body.p-0
+        .p-4.border-bottom
+          h4.fw-bold.mb-0 All Users (5)
+        .table-responsive
+          table.table.align-middle.mb-0
+            thead.table-light
+              tr
+                th.px-4.py-3.text-uppercase Name
+                th.px-4.py-3.text-uppercase Username
+                th.px-4.py-3.text-uppercase Role
+                th.px-4.py-3.text-uppercase Status
+                th.px-4.py-3.text-uppercase Created
+                th.px-4.py-3.text-uppercase Actions
+            tbody
+              tr
+                td.px-4.py-4.fw-semibold John Kamau
+                td.px-4.py-4.text-secondary jkamau
+                td.px-4.py-4.text-secondary Sales Attendant
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill active
+                td.px-4.py-4.text-secondary 2026-01-15
+                td.px-4.py-4
+                  button.btn.btn-link.purple-text.p-0.me-4.purpleIcons
+                    i.bi.bi-pencil-square.fs-5
+                  button.btn.btn-link.text-danger.p-0
+                    i.bi.bi-trash.fs-5
+              tr
+                td.px-4.py-4.fw-semibold Mary Achieng
+                td.px-4.py-4.text-secondary machieng
+                td.px-4.py-4.text-secondary Sales Attendant
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill active
+                td.px-4.py-4.text-secondary 2026-02-10
+                td.px-4.py-4
+                  button.btn.btn-link.purple-text.p-0.me-4.purpleIcons
+                    i.bi.bi-pencil-square.fs-5
+                  button.btn.btn-link.text-danger.p-0
+                    i.bi.bi-trash.fs-5
+              tr
+                td.px-4.py-4.fw-semibold David Ouma
+                td.px-4.py-4.text-secondary douma
+                td.px-4.py-4.text-secondary Store Manager
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill active
+                td.px-4.py-4.text-secondary 2026-01-20
+                td.px-4.py-4
+                  button.btn.btn-link.purple-text.p-0.me-4.purpleIcons
+                    i.bi.bi-pencil-square.fs-5
+                  button.btn.btn-link.text-danger.p-0
+                    i.bi.bi-trash.fs-5
+              tr
+                td.px-4.py-4.fw-semibold Sarah Wanjiku
+                td.px-4.py-4.text-secondary swanjiku
+                td.px-4.py-4.text-secondary Accounts/Admin
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill active
+                td.px-4.py-4.text-secondary 2026-03-05
+                td.px-4.py-4
+                  button.btn.btn-link.purple-text.p-0.me-4.purpleIcons
+                    i.bi.bi-pencil-square.fs-5
+                  button.btn.btn-link.text-danger.p-0
+                    i.bi.bi-trash.fs-5
+              tr
+                td.px-4.py-4.fw-semibold Peter Okello
+                td.px-4.py-4.text-secondary pokello
+                td.px-4.py-4.text-secondary Sales Attendant
+                td.px-4.py-4
+                  span.badge.bg-secondary-subtle.text-dark.px-3.py-2.rounded-pill inactive
+                td.px-4.py-4.text-secondary 2025-12-01
+                td.px-4.py-4
+                  button.btn.btn-link.purple-text.p-0.me-4.purpleIcons
+                    i.bi.bi-pencil-square.fs-5
+                  button.btn.btn-link.text-danger.p-0
+                    i.bi.bi-trash.fs-5
+// pop up of creating a new user
+#createUserModal.modal.fade(tabindex='-1' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered
+    .modal-content.border-0.rounded-4
+      .modal-body.p-4.p-md-5
+        h3.fw-bold.mb-4 Create New User
+        form(action='create-user.html' method='POST')
+          .mb-3
+            label.form-label.fw-semibold Full Name
+            input.form-control(type='text' name='fullName' placeholder='Enter full name' required='')
+          .mb-3
+            label.form-label.fw-semibold Username
+            input.form-control(type='text' name='username' placeholder='Enter username' required='')
+          .mb-3
+            label.form-label.fw-semibold Role
+            select.form-select(name='role' required='')
+              option(value='Sales Attendant') Sales Attendant
+              option(value='Store Manager') Store Manager
+              option(value='Accounts/Admin') Accounts/Admin
+          .mb-4
+            label.form-label.fw-semibold Password
+            input.form-control(type='password' name='password' placeholder='Enter password' required='')
           .row.g-3
-            // Bar Chart
-            .col-md-8
-              .card.border-0.shadow-sm.p-3
-                h6.text-dark.fw-bold Stock Levels by Category
-                small.text-muted Aggregated inventory units per hardware department
-                canvas#barChart(height='120')
-            // Doughnut Chart
-            .col-md-4
-              .card.border-0.shadow-sm.p-3
-                h6.text-dark.fw-bold Inventory Value
-                small.text-muted Value distribution across categories
-                canvas#pieChart(height='180')
-                // Legend
-                .mt-3.small
-                  .d-flex.justify-content-between
-                    span &#x25CF; Masonry
-                    span 45%
-                  .d-flex.justify-content-between
-                    span &#x25CF; Metal
-                    span 25%
-                  .d-flex.justify-content-between
-                    span &#x25CF; Plumbing
-                    span 15%
-        // Chart.js
-        script(src='https://cdn.jsdelivr.net/npm/chart.js')
-        // <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
-        script.
-          // Bar Chart
-          new Chart(document.getElementById('barChart'), {
-          type: 'bar',
-          data: {
-          labels: ['Masonry', 'Metal', 'Plumbing', 'Electrical', 'Finishes'],
-          datasets: [{
-          data: [1200, 850, 450, 650, 300],
-          backgroundColor: '#198754' // success green
-          }]
-          },
-          options: {
-          plugins: { legend: { display: false } },
-          scales: {
-          y: { beginAtZero: true }
-          }
-          }
-          });
-          // Doughnut Chart
-          new Chart(document.getElementById('pieChart'), {
-          type: 'doughnut',
-          data: {
-          labels: ['Masonry', 'Metal', 'Plumbing', 'Electrical', 'Others'],
-          datasets: [{
-          data: [45, 25, 15, 10, 5],
-          backgroundColor: [
-          '#198754',
-          '#000000',
-          '#6c757d',
-          '#adb5bd',
-          '#dee2e6'
-          ]
-          }]
-          },
-          options: {
-          plugins: { legend: { display: false } }
-          }
-          });
-      // Footer
-      .bg-light.text-center.py-3.mt-5.border-top
-        small.text-dark
-          | &copy; 2026 NyondoStock Hardware Inventory. All rights reserved.
+            .col-6
+              button.btn.btn-outline-secondary.w-100.py-3.fw-bold(type='button' data-bs-dismiss='modal')
+                | Cancel
+            .col-6
+              button.btn.purple-bg.text-white.w-100.py-3.fw-bold.purpleBtns(type='submit')
+                | Create User
+script(src='https://cdn.jsdelivr.net/npm/chart.js')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js')

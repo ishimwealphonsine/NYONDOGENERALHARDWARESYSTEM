@@ -1,0 +1,194 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Accounts/Admin Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Accounts/Admin
+  .sidebar-menu
+    a.sidebar-link.active(href='admindashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='usermanagement.html')
+      i.bi.bi-people
+      |  User Management
+    a.sidebar-link(href='suppliercredit.html')
+      i.bi.bi-credit-card
+      |  Supplier Credit
+    a.sidebar-link(href='transport.html')
+      i.bi.bi-truck
+      |  Transport Charges
+    a.sidebar-link(href='depositReg.html')
+      i.bi.bi-person-plus
+      |  Deposit Registration
+    a.sidebar-link(href='depositTrack.html')
+      i.bi.bi-wallet2
+      |  Deposit Tracking
+    a.sidebar-link(href='depositCollect.html')
+      i.bi.bi-archive
+      |  Deposit Collection
+    a.sidebar-link(href='reports.html')
+      i.bi.bi-file-earmark-text
+      |  Reports
+    a.sidebar-link(href='analytics.html')
+      i.bi.bi-bar-chart
+      |  Analytics
+    a.sidebar-link(href='settings.html')
+      i.bi.bi-gear
+      |  Settings
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Deposit Collection
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Admin
+  // SCROLLABLE CONTENT
+  .content
+    // DEPOSIT COLLECTION CONTENT
+    // Success Info Banner
+    .alert.bg-success-subtle.border.border-success-subtle.rounded-4.p-4.mb-4
+      .d-flex.align-items-start.gap-3
+        i.bi.bi-check-circle.fs-2.text-success
+        div
+          h4.fw-bold.text-success.mb-2 Eligible Customers for Collection
+          p.text-success.mb-0
+            | These customers have completed their deposit payments and are ready to collect their products.
+    // Search Card
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        .input-group.input-group-lg
+          span.input-group-text.bg-white.border-end-0
+            i.bi.bi-search.text-secondary
+          input.form-control.border-start-0(type='search' name='collectionSearch' placeholder='Search eligible customers...')
+    // Eligible Customer Cards
+    .row.g-4
+      // Customer 1
+      .col-xl-4.col-md-6
+        .card.border.border-success-subtle.shadow-sm.h-100.rounded-4
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-start.mb-4
+              .bg-success-subtle.text-success.rounded-4.d-flex.align-items-center.justify-content-center.collection-icon
+                i.bi.bi-box-seam.fs-3
+              span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill
+                i.bi.bi-check-circle.me-1
+                | Ready
+            h4.fw-bold.mb-1 Catherine Auma
+            p.text-secondary.mb-0 NIN: CM456789123
+            p.text-secondary.mb-4 Phone: 0700456789
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product to Collect
+              h5.fw-bold.mb-3 Iron Bars - 12mm
+              p.text-secondary.mb-0 Quantity: 50 units
+            hr
+            .d-flex.justify-content-between.align-items-center.mb-2
+              span.text-secondary Amount Deposited
+              strong.text-success 2,800,000 UGX
+            .progress.rounded-pill.mb-2
+              .progress-bar.bg-success.rounded-pill(style='width: 100%;')
+            p.text-success.text-center.fw-semibold.mb-4 100% Complete
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#allocateGoodsModal')
+              i.bi.bi-archive.me-2
+              | Allocate Goods
+      // Customer 2
+      .col-xl-4.col-md-6
+        .card.border.border-success-subtle.shadow-sm.h-100.rounded-4
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-start.mb-4
+              .bg-success-subtle.text-success.rounded-4.d-flex.align-items-center.justify-content-center.collection-icon
+                i.bi.bi-box-seam.fs-3
+              span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill
+                i.bi.bi-check-circle.me-1
+                | Ready
+            h4.fw-bold.mb-1 Michael Omondi
+            p.text-secondary.mb-0 NIN: CM321654987
+            p.text-secondary.mb-4 Phone: 0700321654
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product to Collect
+              h5.fw-bold.mb-3 Cement - 50kg
+              p.text-secondary.mb-0 Quantity: 100 units
+            hr
+            .d-flex.justify-content-between.align-items-center.mb-2
+              span.text-secondary Amount Deposited
+              strong.text-success 3,500,000 UGX
+            .progress.rounded-pill.mb-2
+              .progress-bar.bg-success.rounded-pill(style='width: 100%;')
+            p.text-success.text-center.fw-semibold.mb-4 100% Complete
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#allocateGoodsModal')
+              i.bi.bi-archive.me-2
+              | Allocate Goods
+      // Customer 3
+      .col-xl-4.col-md-6
+        .card.border.border-success-subtle.shadow-sm.h-100.rounded-4
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-start.mb-4
+              .bg-success-subtle.text-success.rounded-4.d-flex.align-items-center.justify-content-center.collection-icon
+                i.bi.bi-box-seam.fs-3
+              span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill
+                i.bi.bi-check-circle.me-1
+                | Ready
+            h4.fw-bold.mb-1 Grace Namukasa
+            p.text-secondary.mb-0 NIN: CM654987321
+            p.text-secondary.mb-4 Phone: 0700654987
+            .bg-light.rounded-4.p-4.mb-4
+              p.text-secondary.mb-2 Product to Collect
+              h5.fw-bold.mb-3 Iron Sheets
+              p.text-secondary.mb-0 Quantity: 100 units
+            hr
+            .d-flex.justify-content-between.align-items-center.mb-2
+              span.text-secondary Amount Deposited
+              strong.text-success 5,600,000 UGX
+            .progress.rounded-pill.mb-2
+              .progress-bar.bg-success.rounded-pill(style='width: 100%;')
+            p.text-success.text-center.fw-semibold.mb-4 100% Complete
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.w-100.py-3.purpleBtns(data-bs-toggle='modal' data-bs-target='#allocateGoodsModal')
+              i.bi.bi-archive.me-2
+              | Allocate Goods
+    // ALLOCATE GOODS MODAL
+    #allocateGoodsModal.modal.fade(tabindex='-1' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered
+        .modal-content.border-0.rounded-4
+          .modal-body.p-4.p-md-5
+            h3.fw-bold.mb-4 Allocate Goods
+            form(action='allocate-goods.html' method='POST')
+              .mb-3
+                label.form-label.fw-semibold Customer Name
+                input.form-control.form-control-lg(type='text' name='customerName' placeholder='Enter customer name' required='')
+              .mb-3
+                label.form-label.fw-semibold Product Collected
+                select.form-select.form-select-lg(name='productCollected' required='')
+                  option(value='') Select product
+                  option(value='Cement - 50kg') Cement - 50kg
+                  option(value='Iron Sheets') Iron Sheets
+                  option(value='Iron Bars - 12mm') Iron Bars - 12mm
+              .mb-3
+                label.form-label.fw-semibold Quantity Released
+                input.form-control.form-control-lg(type='number' name='quantityReleased' placeholder='Enter quantity released' required='')
+              .mb-4
+                label.form-label.fw-semibold Collection Date
+                input.form-control.form-control-lg(type='date' name='collectionDate' required='')
+              .row.g-3
+                .col-6
+                  button.btn.btn-outline-secondary.w-100.py-3.fw-bold(type='button' data-bs-dismiss='modal')
+                    | Cancel
+                .col-6
+                  button.btn.purple-bg.text-white.w-100.py-3.fw-bold(type='submit')
+                    | Confirm Collection

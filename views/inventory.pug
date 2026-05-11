@@ -1,0 +1,207 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Nyondo General Hardware
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css')
+  link(rel='stylesheet' href='style.css')
+main.container.min-vh-100.d-flex.align-items-center.justify-content-center
+  .row.mt-5.justify-content-center.text-center.w-100
+    .col-lg-8.col-xl-7
+      span
+        img(src='/public/images/logo.png' alt='NyondoStock Logo' width='250' height='150')
+      h3.fw-bold.mt-3.mb-3 NYONDO GENERAL HARDWARE LTD
+      p.text-secondary.mb-4.fs-5
+        | Efficient stock, sales, and financial management for modern hardware businesses
+      a.btn.bg-purple.text-white.btn-lg.px-4.py-2.mb-5.fw-semibold.purpleBtns(href='login.html')
+        | Login to
+        | System
+      // Bottom Cards
+      .row.g-3.justify-content-center
+        .col-md-4
+          .bg-white.p-3.rounded-4.shadow-sm.border.h-100
+            i.bi.bi-box.text-purple.fs-3
+            .fw-bold.mt-2 Stock Management
+        .col-md-4
+          .bg-white.p-3.rounded-4.shadow-sm.border.h-100
+            i.bi.bi-graph-up.text-purple.fs-3
+            .fw-bold.mt-2 Sales Tracking
+        .col-md-4
+          .bg-white.p-3.rounded-4.shadow-sm.border.h-100
+            i.bi.bi-boxes.text-purple.fs-3
+            .fw-bold.mt-2 Inventory Control
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Accounts/Admin Dashboard
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+    link(rel='stylesheet' href='style.css')
+    style.
+  // SIDEBAR
+  aside.sidebar
+    .sidebar-header
+      .row
+        img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+        h4.fw-bold.mb-1.col-9 NyondoStock
+      p.mb-0.text-secondary.topuser Store Manager
+    .sidebar-menu
+      a.sidebar-link.active(href='storedashboard.html')
+        i.bi.bi-grid
+        |  Dashboard
+      a.sidebar-link(href='addstock.html')
+        i.bi.bi-box-seam-fill
+        |  Add Stock
+      a.sidebar-link(href='inventory.html')
+        i.bi.bi-box
+        |  Inventory
+      a.sidebar-link(href='pricing.html')
+        i.bi.bi-currency-dollar
+        |  Pricing
+    .sidebar-footer
+      a.sidebar-link.mb-0(href='login.html')
+        i.bi.bi-box-arrow-right
+        |  Logout
+  // MAIN
+  main.main
+    // TOPBAR
+    .topbar
+      h3.fw-bold.mb-0 Inventory
+      .d-flex.align-items-center.gap-3
+        button.btn.border.rounded-4.position-relative.p-3
+          i.bi.bi-bell.fs-4
+          span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+        button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+          i.bi.bi-person.me-2
+          |  Stock Manager
+    // SCROLLABLE CONTENT
+    .content
+      // INVENTORY CONTENT
+      // Search Card
+      .card.border-0.shadow-sm.mb-4
+        .card-body.p-4
+          .input-group.input-group-lg
+            span.input-group-text.bg-white.border-end-0
+              i.bi.bi-search.text-secondary
+            input.form-control.border-start-0(type='search' name='inventorySearch' placeholder='Search by product or supplier...')
+      // Inventory Table
+      .card.border-0.shadow-sm
+        .card-body.p-0
+          .p-4.border-bottom
+            h4.fw-bold.mb-0 Inventory Overview
+          .table-responsive
+            table.table.align-middle.mb-0
+              thead.table-light
+                tr
+                  th.px-4.py-3.text-uppercase Product
+                  th.px-4.py-3.text-uppercase Stock
+                  th.px-4.py-3.text-uppercase Unit
+                  th.px-4.py-3.text-uppercase Cost
+                  th.px-4.py-3.text-uppercase Price
+                  th.px-4.py-3.text-uppercase Supplier
+                  th.px-4.py-3.text-uppercase Status
+                  th.px-4.py-3.text-uppercase Actions
+              tbody
+                tr
+                  td.px-4.py-4.fw-semibold Cement - 50kg
+                  td.px-4.py-4.fw-semibold 2,400
+                  td.px-4.py-4.text-secondary bags
+                  td.px-4.py-4.text-secondary 30,000 UGX
+                  td.px-4.py-4.fw-semibold 35,000 UGX
+                  td.px-4.py-4.text-secondary BuildCo Ltd
+                  td.px-4.py-4
+                    span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill Good
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Iron Bars - 12mm
+                  td.px-4.py-4.fw-semibold 850
+                  td.px-4.py-4.text-secondary pieces
+                  td.px-4.py-4.text-secondary 48,000 UGX
+                  td.px-4.py-4.fw-semibold 56,000 UGX
+                  td.px-4.py-4.text-secondary Steel Works
+                  td.px-4.py-4
+                    span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill Good
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Iron Bars - 16mm
+                  td.px-4.py-4.fw-semibold 450
+                  td.px-4.py-4.text-secondary pieces
+                  td.px-4.py-4.text-secondary 65,000 UGX
+                  td.px-4.py-4.fw-semibold 78,000 UGX
+                  td.px-4.py-4.text-secondary Steel Works
+                  td.px-4.py-4
+                    span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill Good
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Iron Sheets
+                  td.px-4.py-4.fw-semibold 320
+                  td.px-4.py-4.text-secondary sheets
+                  td.px-4.py-4.text-secondary 48,000 UGX
+                  td.px-4.py-4.fw-semibold 56,000 UGX
+                  td.px-4.py-4.text-secondary MetalCraft
+                  td.px-4.py-4
+                    span.badge.bg-danger-subtle.purple-text.px-3.py-2.rounded-pill
+                      i.bi.bi-exclamation-circle.me-1
+                      | Low Stock
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Nails - 3 inch
+                  td.px-4.py-4.fw-semibold 180
+                  td.px-4.py-4.text-secondary boxes
+                  td.px-4.py-4.text-secondary 18,000 UGX
+                  td.px-4.py-4.fw-semibold 22,500 UGX
+                  td.px-4.py-4.text-secondary Hardware Plus
+                  td.px-4.py-4
+                    span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill Good
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Paint - 20L
+                  td.px-4.py-4.fw-semibold 45
+                  td.px-4.py-4.text-secondary buckets
+                  td.px-4.py-4.text-secondary 95,000 UGX
+                  td.px-4.py-4.fw-semibold 125,000 UGX
+                  td.px-4.py-4.text-secondary Paints R Us
+                  td.px-4.py-4
+                    span.badge.bg-danger-subtle.purple-text.px-3.py-2.rounded-pill
+                      i.bi.bi-exclamation-circle.me-1
+                      | Low Stock
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Roofing Nails
+                  td.px-4.py-4.fw-semibold 92
+                  td.px-4.py-4.text-secondary boxes
+                  td.px-4.py-4.text-secondary 22,000 UGX
+                  td.px-4.py-4.fw-semibold 28,000 UGX
+                  td.px-4.py-4.text-secondary Hardware Plus
+                  td.px-4.py-4
+                    span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill Good
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5
+                tr
+                  td.px-4.py-4.fw-semibold Wire Mesh
+                  td.px-4.py-4.fw-semibold 28
+                  td.px-4.py-4.text-secondary rolls
+                  td.px-4.py-4.text-secondary 115,000 UGX
+                  td.px-4.py-4.fw-semibold 145,000 UGX
+                  td.px-4.py-4.text-secondary MetalCraft
+                  td.px-4.py-4
+                    span.badge.bg-danger-subtle.purple-text.px-3.py-2.rounded-pill
+                      i.bi.bi-exclamation-circle.me-1
+                      | Low Stock
+                  td.px-4.py-4
+                    button.btn.btn-link.purple-text.p-0.purpleIcons
+                      i.bi.bi-pencil-square.fs-5

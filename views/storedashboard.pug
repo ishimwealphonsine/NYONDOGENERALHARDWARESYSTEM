@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accounts/Admin Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-header">
+      <div class="row">
+        <img src="/public/images/logo.png" alt="NyondoStock Logo" width="60px" height="40px" class="col-3">
+        <h4 class="fw-bold mb-1 col-9">NyondoStock</h4>
+      </div>
+
+      <p class="mb-0 text-secondary topuser">Store Manager</p>
+    </div>
+
+    <div class="sidebar-menu">
+      <a href="storedashboard.html" class="sidebar-link active">
+        <i class="bi bi-grid"></i> Dashboard
+      </a>
+
+      <a href="addstock.html" class="sidebar-link">
+        <i class="bi bi-box-seam-fill"></i> Add Stock
+      </a>
+
+      <a href="inventory.html" class="sidebar-link">
+        <i class="bi bi-box"></i> Inventory
+      </a>
+
+      <a href="pricing.html" class="sidebar-link">
+        <i class="bi bi-currency-dollar"></i> Pricing
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="login.html" class="sidebar-link mb-0">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h3 class="fw-bold mb-0">Dashboard</h3>
+
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn border rounded-4 position-relative p-3">
+          <i class="bi bi-bell fs-4"></i>
+          <span
+            class="position-absolute top-0 end-0 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+        </button>
+
+        <button class="btn bg-light rounded-4 px-4 py-3 fw-bold">
+          <i class="bi bi-person me-2"></i> Stock Manager
+        </button>
+      </div>
+    </div>
+
+    <!-- SCROLLABLE CONTENT -->
+    <div class="content">
+
+      <!-- STORE MANAGER DASHBOARD CONTENT -->
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-6 col-xl-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+              <div
+                class="purple-bg text-white rounded-4 d-flex align-items-center justify-content-center dashboard-icon mb-4">
+                <i class="bi bi-box-seam fs-3"></i>
+              </div>
+              <p class="text-secondary mb-2">Total Products</p>
+              <h2 class="fw-bold mb-0">127</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+              <div
+                class="purple-bg text-white rounded-4 d-flex align-items-center justify-content-center dashboard-icon mb-4">
+                <i class="bi bi-exclamation-circle fs-3"></i>
+              </div>
+              <p class="text-secondary mb-2">Low Stock Items</p>
+              <h2 class="fw-bold mb-0">8</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+              <div
+                class="purple-bg text-white rounded-4 d-flex align-items-center justify-content-center dashboard-icon mb-4">
+                <i class="bi bi-graph-up-arrow fs-3"></i>
+              </div>
+              <p class="text-secondary mb-2">Stock Value</p>
+              <h2 class="fw-bold mb-0">125M UGX</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+              <div
+                class="purple-bg text-white rounded-4 d-flex align-items-center justify-content-center dashboard-icon mb-4">
+                <i class="bi bi-boxes fs-3"></i>
+              </div>
+              <p class="text-secondary mb-2">Categories</p>
+              <h2 class="fw-bold mb-0">12</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">Current Stock Levels</h4>
+              <canvas id="stockLevelsChart" height="240"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">Stock Movement Trends</h4>
+              <canvas id="stockMovementChart" height="240"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <i class="bi bi-exclamation-circle fs-2 purple-text"></i>
+            <h4 class="fw-bold mb-0">Low Stock Alerts</h4>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6 col-xl-3">
+              <div class="alert-box">
+                <h5 class="fw-bold mb-2">Iron Sheets</h5>
+                <p class="text-secondary mb-0">Restock required</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <div class="alert-box">
+                <h5 class="fw-bold mb-2">Paint - 20L</h5>
+                <p class="text-secondary mb-0">Restock required</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <div class="alert-box">
+                <h5 class="fw-bold mb-2">Wire Mesh</h5>
+                <p class="text-secondary mb-0">Restock required</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <div class="alert-box">
+                <h5 class="fw-bold mb-2">Roofing Nails</h5>
+                <p class="text-secondary mb-0">Restock required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const stockLevelsCtx = document.getElementById("stockLevelsChart").getContext("2d");
+
+    new Chart(stockLevelsCtx, {
+      type: "bar",
+      data: {
+        labels: ["Cement", "Iron Bars 16mm", "Iron Sheets", "Nails", "Paint"],
+        datasets: [{
+          label: "stock",
+          data: [2400, 850, 450, 180, 45],
+          backgroundColor: "#e728f1",
+          hoverBackgroundColor: "#e728f1",
+          borderColor: "#e728f1",
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1500,
+          easing: "easeOutQuart"
+        },
+        interaction: {
+          mode: "point",
+          intersect: true
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#ffffff",
+            titleColor: "#000000",
+            bodyColor: "#e728f1",
+            borderColor: "#dddddd",
+            borderWidth: 1,
+            padding: 12,
+            callbacks: {
+              label: function (context) {
+                return "stock : " + context.raw;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            suggestedMax: 2400,
+            ticks: {
+              stepSize: 600
+            },
+            grid: {
+              color: "#d7d7d7"
+            }
+          },
+          x: {
+            grid: {
+              color: "#d7d7d7"
+            }
+          }
+        }
+      }
+    });
+
+
+    const stockMovementCtx = document.getElementById("stockMovementChart").getContext("2d");
+
+    new Chart(stockMovementCtx, {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+        datasets: [
+          {
+            label: "incoming",
+            data: [4000, 3000, 2000, 2800, 1900],
+            borderColor: "#e728f1",
+            backgroundColor: "#e728f1",
+            borderWidth: 3,
+            tension: 0.45,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointBackgroundColor: "#ffffff",
+            pointBorderColor: "#e728f1",
+            pointBorderWidth: 2
+          },
+          {
+            label: "outgoing",
+            data: [4000, 3000, 2000, 2800, 1900],
+            borderColor: "#160016",
+            backgroundColor: "#160016",
+            borderWidth: 3,
+            tension: 0.45,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointBackgroundColor: "#ffffff",
+            pointBorderColor: "#160016",
+            pointBorderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1500,
+          easing: "easeOutQuart"
+        },
+        interaction: {
+          mode: "point",
+          intersect: true
+        },
+        plugins: {
+          legend: {
+            position: "bottom"
+          },
+          tooltip: {
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#ffffff",
+            titleColor: "#000000",
+            bodyColor: "#000000",
+            borderColor: "#dddddd",
+            borderWidth: 1,
+            padding: 12
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            suggestedMax: 6000,
+            ticks: {
+              stepSize: 1500
+            },
+            grid: {
+              color: "#d7d7d7"
+            }
+          },
+          x: {
+            grid: {
+              color: "#d7d7d7"
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

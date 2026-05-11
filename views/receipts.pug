@@ -1,0 +1,167 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sales Dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
+  link(rel='stylesheet' href='style.css')
+  style.
+// SIDEBAR
+aside.sidebar
+  .sidebar-header
+    .row
+      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
+      h4.fw-bold.mb-1.col-9 NyondoStock
+    p.mb-0.text-secondary.topuser Sales Attendant
+  .sidebar-menu
+    a.sidebar-link.active(href='salesdashboard.html')
+      i.bi.bi-grid
+      |  Dashboard
+    a.sidebar-link.active(href='recordsale.html')
+      i.bi.bi-people
+      |  Record Sale
+    a.sidebar-link(href='stockcheck.html')
+      i.bi.bi-credit-card
+      |  Stock Check
+    a.sidebar-link(href='receipts.html')
+      i.bi.bi-truck
+      |  Receipts
+  .sidebar-footer
+    a.sidebar-link.mb-0(href='login.html')
+      i.bi.bi-box-arrow-right
+      |  Logout
+// MAIN
+main.main
+  // TOPBAR
+  .topbar
+    h3.fw-bold.mb-0 Receipts
+    .d-flex.align-items-center.gap-3
+      button.btn.border.rounded-4.position-relative.p-3
+        i.bi.bi-bell.fs-4
+        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
+      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
+        i.bi.bi-person.me-2
+        |  Sales User
+  // SCROLLABLE CONTENT
+  .content
+    // RECEIPTS CONTENT
+    // Search Card
+    .card.border-0.shadow-sm.mb-4
+      .card-body.p-4
+        .input-group.input-group-lg
+          span.input-group-text.bg-white.border-end-0
+            i.bi.bi-search.text-secondary
+          input.form-control.border-start-0(type='search' name='receiptSearch' placeholder='Search by receipt ID or customer name...')
+    // Receipts Table
+    .card.border-0.shadow-sm
+      .card-body.p-0
+        .p-4.border-bottom
+          h4.fw-bold.mb-0 All Receipts
+        .table-responsive
+          table.table.align-middle.mb-0
+            thead.table-light
+              tr
+                th.px-4.py-3.text-uppercase Receipt ID
+                th.px-4.py-3.text-uppercase Date
+                th.px-4.py-3.text-uppercase Customer
+                th.px-4.py-3.text-uppercase Amount
+                th.px-4.py-3.text-uppercase Status
+                th.px-4.py-3.text-uppercase Actions
+            tbody
+              tr
+                td.px-4.py-4.fw-semibold RC001
+                td.px-4.py-4.text-secondary 2026-05-06
+                td.px-4.py-4.text-secondary John Doe
+                td.px-4.py-4.fw-semibold 3,500,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC002
+                td.px-4.py-4.text-secondary 2026-05-06
+                td.px-4.py-4.text-secondary Jane Smith
+                td.px-4.py-4.fw-semibold 2,800,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC003
+                td.px-4.py-4.text-secondary 2026-05-06
+                td.px-4.py-4.text-secondary Mike Johnson
+                td.px-4.py-4.fw-semibold 4,200,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC004
+                td.px-4.py-4.text-secondary 2026-05-06
+                td.px-4.py-4.text-secondary Sarah Wilson
+                td.px-4.py-4.fw-semibold 450,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC005
+                td.px-4.py-4.text-secondary 2026-05-06
+                td.px-4.py-4.text-secondary David Brown
+                td.px-4.py-4.fw-semibold 7,000,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC006
+                td.px-4.py-4.text-secondary 2026-05-05
+                td.px-4.py-4.text-secondary Lisa Anderson
+                td.px-4.py-4.fw-semibold 1,850,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC007
+                td.px-4.py-4.text-secondary 2026-05-05
+                td.px-4.py-4.text-secondary Robert Taylor
+                td.px-4.py-4.fw-semibold 5,600,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
+              tr
+                td.px-4.py-4.fw-semibold RC008
+                td.px-4.py-4.text-secondary 2026-05-05
+                td.px-4.py-4.text-secondary Emily Davis
+                td.px-4.py-4.fw-semibold 890,000 UGX
+                td.px-4.py-4
+                  span.badge.bg-success-subtle.text-success.px-3.py-2.rounded-pill paid
+                td.px-4.py-4
+                  button.btn.btn-link.text-dark.p-0.me-4
+                    i.bi.bi-eye.fs-5
+                  button.btn.btn-link.purple-text.p-0
+                    i.bi.bi-printer.fs-5.purpleIcons
