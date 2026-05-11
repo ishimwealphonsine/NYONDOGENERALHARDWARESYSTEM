@@ -5,12 +5,12 @@ head
   title NyondoStock Login
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
   link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
-  link(rel='stylesheet' href='style.css')
+  link(rel='stylesheet' href='/css/style.css')
 .container.vh-100.d-flex.flex-column.justify-content-center.align-items-center
   .card.login-card.border-0.shadow-lg.w-100
     .card-body.p-4
       .container.row
-        img.col-2(src='/public/images/logo.png' alt='NyondoStock Logo' width='40' height='40')
+        img.col-2(src='/images/logo.png' alt='NyondoStock Logo' width='40' height='40')
         h2.fw-bold.mb-3.col-9 Login to Your Account
       p.fw-semibold.mb-2 Select Role
       .row.g-2.mb-2
@@ -27,7 +27,7 @@ head
             i.bi.bi-briefcase.fs-4.d-block.mb-1
             span Accounts/Admin
       p#selectedRoleText.fs-5.text-secondary.mb-3 Sales Attendant
-      form(action='dashboard.html' method='POST')
+      form(action='/auth/login' method='POST')
         .mb-3
           label.form-label.fw-semibold Username
           input.form-control(type='text' name='username' placeholder='Enter your username' required='')

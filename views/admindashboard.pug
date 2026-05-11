@@ -1,68 +1,5 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Accounts/Admin Dashboard
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
-  link(rel='stylesheet' href='style.css')
-  style.
-// SIDEBAR
-aside.sidebar
-  .sidebar-header
-    .row
-      img.col-3(src='/public/images/logo.png' alt='NyondoStock Logo' width='60px' height='40px')
-      h4.fw-bold.mb-1.col-9 NyondoStock
-    p.mb-0.text-secondary.topuser Accounts/Admin
-  .sidebar-menu
-    a.sidebar-link.active(href='admindashboard.html')
-      i.bi.bi-grid
-      |  Dashboard
-    a.sidebar-link.active(href='usermanagement.html')
-      i.bi.bi-people
-      |  User Management
-    a.sidebar-link.active(href='suppliercredit.html')
-      i.bi.bi-credit-card
-      |  Supplier Credit
-    a.sidebar-link.active(href='transport.html')
-      i.bi.bi-truck
-      |  Transport Charges
-    a.sidebar-link.active(href='depositReg.html')
-      i.bi.bi-person-plus
-      |  Deposit Registration
-    a.sidebar-link.active(href='depositTrack.html')
-      i.bi.bi-wallet2
-      |  Deposit Tracking
-    a.sidebar-link.active(href='depositCollect.html')
-      i.bi.bi-archive
-      |  Deposit Collection
-    a.sidebar-link.active(href='reports.html')
-      i.bi.bi-file-earmark-text
-      |  Reports
-    a.sidebar-link.active(href='analytics.html')
-      i.bi.bi-bar-chart
-      |  Analytics
-    a.sidebar-link.active(href='settings.html')
-      i.bi.bi-gear
-      |  Settings
-  .sidebar-footer
-    a.sidebar-link.mb-0(href='login.html')
-      i.bi.bi-box-arrow-right
-      |  Logout
-// MAIN
-main.main
-  // TOPBAR
-  .topbar
-    h3.fw-bold.mb-0 Dashboard
-    .d-flex.align-items-center.gap-3
-      button.btn.border.rounded-4.position-relative.p-3
-        i.bi.bi-bell.fs-4
-        span.position-absolute.top-0.end-0.translate-middle.p-1.bg-danger.border.border-light.rounded-circle
-      button.btn.bg-light.rounded-4.px-4.py-3.fw-bold
-        i.bi.bi-person.me-2
-        |  Admin
-  // SCROLLABLE CONTENT
-  .content
+extends layoutadmin 
+block content
     // TOP CARDS
     .row.g-4.mb-4
       .col-md-6.col-xl-3
@@ -170,30 +107,30 @@ main.main
         .alert-box
           h5.fw-bold.mb-1 12 Deposits Ready for Collection
           p.text-secondary.mb-0 Customers have completed payment schedules
-script(src='https://cdn.jsdelivr.net/npm/chart.js')
-script.
-  const ctx = document.getElementById("creditPieChart");
-  new Chart(ctx, {
-  type: "pie",
-  data: {
-  labels: ["Paid", "Pending", "Overdue"],
-  datasets: [{
-  data: [65, 25, 10],
-  backgroundColor: ["#12b886", "#f59f00", "#e728f1"],
-  borderWidth: 0
-  }]
-  },
-  options: {
-  responsive: true,
-  animation: {
-  animateRotate: true,
-  animateScale: true,
-  duration: 1600
-  },
-  plugins: {
-  legend: {
-  position: "bottom"
-  }
-  }
-  }
-  });
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+    script.
+      const ctx = document.getElementById("creditPieChart");
+      new Chart(ctx, {
+      type: "pie",
+      data: {
+      labels: ["Paid", "Pending", "Overdue"],
+      datasets: [{
+      data: [65, 25, 10],
+      backgroundColor: ["#12b886", "#f59f00", "#e728f1"],
+      borderWidth: 0
+      }]
+      },
+      options: {
+      responsive: true,
+      animation: {
+      animateRotate: true,
+      animateScale: true,
+      duration: 1600
+      },
+      plugins: {
+      legend: {
+      position: "bottom"
+      }
+      }
+      }
+      });

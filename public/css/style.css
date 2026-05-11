@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-image: url(/public/images/landingimg.png);
+  background-image: url(/images/landingimg.png);
   font-family: 'Inter', sans-serif;
   overflow: hidden;
   font-size: 15px;

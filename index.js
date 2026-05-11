@@ -33,7 +33,10 @@ app.use(expressSession({
 
 // 5. Routes
 app.use('/', require('./routes/indexRoutes'));
-app.use('/', require('./routes/stockRoutes'));
+app.use('/', require('./routes/authRoutes'));
+app.use('/', require('./routes/adminRoutes'));
+app.use('/', require('./routes/storeRoutes'));
+app.use('/', require('./routes/salesRoutes'));
 
 // Handling non-existent routes
 app.use((req, res) => {
