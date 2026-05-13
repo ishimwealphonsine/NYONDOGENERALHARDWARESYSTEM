@@ -58,6 +58,14 @@ router.post('/depositTracking', (req, res) => {
 });
 
 // Reports
+router.get('/reports', (req, res) => {
+  res.render('reports');
+});
+router.post('/reports', (req, res) => {
+  console.log(req.body);
+});
+
+// Reports
 router.get('/depositCollection', (req, res) => {
   res.render('depositCollect');
 });

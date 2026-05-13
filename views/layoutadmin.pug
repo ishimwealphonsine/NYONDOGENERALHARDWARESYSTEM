@@ -2,7 +2,6 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Accounts/Admin Dashboard
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
   link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css' rel='stylesheet')
   link(rel='stylesheet' href='/css/style.css')
@@ -20,10 +19,10 @@ body
       a.sidebar-link.active(href='/admindashboard')
         i.bi.bi-grid
         |  Dashboard
-      a.sidebar-link.active(href='/usermanagement')
+      a.sidebar-link.active(href='/users')
         i.bi.bi-people
         |  User Management
-      a.sidebar-link(href='/suppliercredit')
+      a.sidebar-link(href='/credit')
         i.bi.bi-credit-card
         |  Supplier Credit
       a.sidebar-link(href='/transport')
@@ -35,27 +34,27 @@ body
       a.sidebar-link(href='/depositTracking')
         i.bi.bi-wallet2
         |  Deposit Tracking
-      a.sidebar-link(href='depositCollect.html')
+      a.sidebar-link(href='/depositCollection')
         i.bi.bi-archive
         |  Deposit Collection
-      a.sidebar-link(href='reports.html')
+      a.sidebar-link(href='/reports')
         i.bi.bi-file-earmark-text
         |  Reports
-      a.sidebar-link(href='analytics.html')
+      a.sidebar-link(href='/analytics')
         i.bi.bi-bar-chart
         |  Analytics
-      a.sidebar-link(href='settings.html')
+      a.sidebar-link(href='/settings')
         i.bi.bi-gear
         |  Settings
     .sidebar-footer
-      a.sidebar-link.mb-0(href='login.html')
+      a.sidebar-link.mb-0(href='/login')
         i.bi.bi-box-arrow-right
         |  Logout
   // MAIN
   main.main
     // TOPBAR
     .topbar
-      h3.fw-bold.mb-0 Analytics
+      h3.fw-bold.mb-0 Admin Account
       .d-flex.align-items-center.gap-3
         button.btn.border.rounded-4.position-relative.p-3
           i.bi.bi-bell.fs-4

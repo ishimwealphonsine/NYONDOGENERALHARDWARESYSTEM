@@ -96,78 +96,78 @@ block content
                 td.px-4.py-4.text-secondary 22 km
                 td.px-4.py-4.fw-bold 30,000 UGX
                 td.px-4.py-4.text-secondary 2026-05-05
-script(src='https://cdn.jsdelivr.net/npm/chart.js')
-script.
-  const transportCtx = document.getElementById("transportIncomeChart");
-  new Chart(transportCtx, {
-  type: "line",
-  data: {
-  labels: ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6"],
-  datasets: [{
-  label: "income",
-  data: [120000, 90000, 150000, 60000, 90000, 90000],
-  borderColor: "#e728f1",
-  backgroundColor: "rgba(231, 40, 241, 0.12)",
-  borderWidth: 4,
-  tension: 0.45,
-  pointRadius: 5,
-  pointHoverRadius: 8,
-  pointBackgroundColor: "#ffffff",
-  pointBorderColor: "#e728f1",
-  pointBorderWidth: 3,
-  fill: false
-  }]
-  },
-  options: {
-  responsive: true,
-  animation: {
-  duration: 1600,
-  easing: "easeOutQuart"
-  },
-  interaction: {
-  mode: "index",
-  intersect: false
-  },
-  plugins: {
-  legend: {
-  display: true,
-  position: "bottom",
-  labels: {
-  color: "#e728f1",
-  font: {
-  size: 16
-  }
-  }
-  },
-  tooltip: {
-  enabled: true,
-  backgroundColor: "#000000",
-  titleColor: "#ffffff",
-  bodyColor: "#ffffff",
-  padding: 12,
-  callbacks: {
-  label: function (context) {
-  return "Income: " + context.raw.toLocaleString() + " UGX";
-  }
-  }
-  }
-  },
-  scales: {
-  y: {
-  beginAtZero: true,
-  suggestedMax: 160000,
-  ticks: {
-  stepSize: 40000
-  },
-  grid: {
-  borderDash: [5, 5]
-  }
-  },
-  x: {
-  grid: {
-  borderDash: [5, 5]
-  }
-  }
-  }
-  }
-  });
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+    script.
+      const transportCtx = document.getElementById("transportIncomeChart");
+      new Chart(transportCtx, {
+      type: "line",
+      data: {
+      labels: ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6"],
+      datasets: [{
+      label: "income",
+      data: [120000, 90000, 150000, 60000, 90000, 90000],
+      borderColor: "#e728f1",
+      backgroundColor: "rgba(231, 40, 241, 0.12)",
+      borderWidth: 4,
+      tension: 0.45,
+      pointRadius: 5,
+      pointHoverRadius: 8,
+      pointBackgroundColor: "#ffffff",
+      pointBorderColor: "#e728f1",
+      pointBorderWidth: 3,
+      fill: false
+      }]
+      },
+      options: {
+      responsive: true,
+      animation: {
+      duration: 1600,
+      easing: "easeOutQuart"
+      },
+      interaction: {
+      mode: "index",
+      intersect: false
+      },
+      plugins: {
+      legend: {
+      display: true,
+      position: "bottom",
+      labels: {
+      color: "#e728f1",
+      font: {
+      size: 16
+      }
+      }
+      },
+      tooltip: {
+      enabled: true,
+      backgroundColor: "#000000",
+      titleColor: "#ffffff",
+      bodyColor: "#ffffff",
+      padding: 12,
+      callbacks: {
+      label: function (context) {
+      return "Income: " + context.raw.toLocaleString() + " UGX";
+      }
+      }
+      }
+      },
+      scales: {
+      y: {
+      beginAtZero: true,
+      suggestedMax: 160000,
+      ticks: {
+      stepSize: 40000
+      },
+      grid: {
+      borderDash: [5, 5]
+      }
+      },
+      x: {
+      grid: {
+      borderDash: [5, 5]
+      }
+      }
+      }
+      }
+      });

@@ -11,9 +11,9 @@ block content
             p.text-secondary.mb-0 Record incoming inventory
         form(action='add-stock.html' method='POST')
           .mb-4
-            label.form-label.fw-semibold Product Type
-            select.form-select.form-select-lg(name='productType' required='')
-              option(value='') Select product type...
+            label.form-label.fw-semibold Product Name
+            select.form-select.form-select-lg(name='product' required='')
+              option(value='') Select product name...
               option(value='Cement') Cement
               option(value='Iron Bars') Iron Bars
               option(value='Iron Sheets') Iron Sheets
@@ -28,10 +28,22 @@ block content
             label.form-label.fw-semibold Unit Cost (UGX)
             input.form-control.form-control-lg(type='number' name='unitCost' placeholder='Enter cost per unit' required='')
           .mb-4
-            label.form-label.fw-semibold Unit Price (UGX)
+            label.form-label.fw-semibold Selling Price (UGX)
             input.form-control.form-control-lg(type='number' name='unitPrice' placeholder='Enter selling price per unit' required='')
           .mb-4
-            label.form-label.fw-semibold Supplier
-            input.form-control.form-control-lg(type='text' name='supplier' placeholder='Enter supplier name' required='')
+            label.form-label.fw-semibold Supplier Name
+            input.form-control.form-control-lg(type='text' name='supplierName' placeholder='Enter supplier name' required='')
+          .mb-4
+            label.form-label.fw-semibold Supplier Phone
+            input.form-control.form-control-lg(type='text' name='supplierPhone' placeholder='Enter supplier phone' required='')
+          .mb-4
+            label.form-label.fw-semibold Factory Name
+            input.form-control.form-control-lg(type='text' name='factoryName' placeholder='Enter factory name' required='')
+          .mb-4
+            label.form-label.fw-semibold Payment Status
+            select.form-select.form-select-lg(name='paymentStatus' required='')
+              option(value='') Select payment status...
+              option(value='cash') Cash at Hand
+              option(value='credit') Credit 
           button.btn.purple-bg.purpleBtns.text-white.btn-lg.fw-bold.w-100.py-3(type='submit')
             | Add Stock

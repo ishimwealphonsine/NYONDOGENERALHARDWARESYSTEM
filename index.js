@@ -2,6 +2,10 @@
 const express = require('express');
 const expressSession = require('express-session');
 const path = require('path');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
+const connectDb = require('./config/db');
 
 // 2. Instantiations
 const app = express();
@@ -10,7 +14,8 @@ const port = 3000;
 // 3. Configuration
 // Set templating engine to pug
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'));
+connectDb();
 
 // 4. Middleware
 app.use(express.static(path.join(__dirname, 'public')));

@@ -90,34 +90,34 @@ block content
                     i.bi.bi-pencil-square.fs-5
                   button.btn.btn-link.text-danger.p-0
                     i.bi.bi-trash.fs-5
-// pop up of creating a new user
-#createUserModal.modal.fade(tabindex='-1' aria-hidden='true')
-  .modal-dialog.modal-dialog-centered
-    .modal-content.border-0.rounded-4
-      .modal-body.p-4.p-md-5
-        h3.fw-bold.mb-4 Create New User
-        form(action='create-user.html' method='POST')
-          .mb-3
-            label.form-label.fw-semibold Full Name
-            input.form-control(type='text' name='fullName' placeholder='Enter full name' required='')
-          .mb-3
-            label.form-label.fw-semibold Username
-            input.form-control(type='text' name='username' placeholder='Enter username' required='')
-          .mb-3
-            label.form-label.fw-semibold Role
-            select.form-select(name='role' required='')
-              option(value='Sales Attendant') Sales Attendant
-              option(value='Store Manager') Store Manager
-              option(value='Accounts/Admin') Accounts/Admin
-          .mb-4
-            label.form-label.fw-semibold Password
-            input.form-control(type='password' name='password' placeholder='Enter password' required='')
-          .row.g-3
-            .col-6
-              button.btn.btn-outline-secondary.w-100.py-3.fw-bold(type='button' data-bs-dismiss='modal')
-                | Cancel
-            .col-6
-              button.btn.purple-bg.text-white.w-100.py-3.fw-bold.purpleBtns(type='submit')
-                | Create User
-script(src='https://cdn.jsdelivr.net/npm/chart.js')
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js')
+    // pop up of creating a new user
+    #createUserModal.modal.fade(tabindex='-1' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered
+        .modal-content.border-0.rounded-4
+          .modal-body.p-4.p-md-5
+            h3.fw-bold.mb-4 Create New User
+            form(action='create-user.html' method='POST')
+              .mb-3
+                label.form-label.fw-semibold Full Name
+                input.form-control(type='text' name='fullName' placeholder='Enter full name' required='')
+              .mb-3
+                label.form-label.fw-semibold Username
+                input.form-control(type='text' name='username' placeholder='Enter username' required='')
+              .mb-3
+                label.form-label.fw-semibold Role
+                select.form-select(name='role' required='')
+                  option(value='Sales Attendant') Sales Attendant
+                  option(value='Store Manager') Store Manager
+                  option(value='Accounts/Admin') Accounts/Admin
+              .mb-4
+                label.form-label.fw-semibold Password
+                input.form-control(type='password' name='password' placeholder='Enter password' required='')
+              .row.g-3
+                .col-6
+                  button.btn.btn-outline-secondary.w-100.py-3.fw-bold(type='button' data-bs-dismiss='modal')
+                    | Cancel
+                .col-6
+                  button.btn.purple-bg.text-white.w-100.py-3.fw-bold.purpleBtns(type='submit')
+                    | Create User
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js')

@@ -17,7 +17,6 @@ router.post('/recordsale', (req, res) => {
   console.log(req.body);
 });
 
-
 // stock check
 router.get('/stockcheck', (req, res) => {
   res.render('stockcheck');

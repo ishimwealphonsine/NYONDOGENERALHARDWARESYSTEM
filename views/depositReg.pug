@@ -18,7 +18,7 @@ block content
             input.form-control.form-control-lg(type='text' name='nin' placeholder='Enter NIN' minlength='14' maxlength='14' required='')
           .mb-4
             label.form-label.fw-semibold Phone Number
-            input.form-control.form-control-lg(type='tel' name='phoneNumber' placeholder='Enter phone number' required='')
+            input.form-control.form-control-lg(type='text' name='phoneNumber' placeholder='Enter phone number' required='')
           .mb-4
             label.form-label.fw-semibold Select Product
             select.form-select.form-select-lg(name='selectedProduct' required='')
@@ -27,8 +27,17 @@ block content
               option(value='Iron Sheets') Iron Sheets
               option(value='Iron Bars') Iron Bars
           .mb-4
-            label.form-label.fw-semibold Target Amount (UGX)
-            input.form-control.form-control-lg(type='number' name='targetAmount' placeholder='Enter target deposit amount' required='')
+            label.form-label.fw-semibold Quantity
+            input.form-control.form-control-lg(type='number' name='quantity' placeholder='Enter quantinty' required='')
+          .mb-4
+            label.form-label.fw-semibold Selling Price (UGX)
+            input.form-control.form-control-lg(type='number' name='sellingPrice' placeholder='Enter selling price' required='')
+          .mb-4
+            label.form-label.fw-semibold Money Deposited
+            input.form-control.form-control-lg(type='number' name='quantity' placeholder='Enter quantinty' required='')
+          .mb-4
+            label.form-label.fw-semibold Customer Distance (KM)
+            input.form-control.form-control-lg(type='number' name='quantity' placeholder='Enter quantinty' required='')
             small.text-secondary The total amount customer wants to save for the product
           .bg-light.rounded-4.p-4.mb-4
             h4.fw-bold.mb-3 Deposit Scheme Information

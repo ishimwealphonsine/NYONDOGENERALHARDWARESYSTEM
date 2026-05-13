@@ -1,7 +1,6 @@
 extends layoutadmin 
 block content
-    // REPORTS CONTENT
-    // Generate Report Card
+    
     .card.border-0.shadow-sm.mb-4
       .card-body.p-4
         .d-flex.align-items-center.gap-3.mb-4
@@ -143,19 +142,19 @@ block content
             p.text-secondary.mb-2.fs-5 Most Generated
             h2.fw-bold.mb-2 Sales
             p.text-secondary.mb-0 Report type
-script.
-  const reportOptions = document.querySelectorAll(".report-option");
-  reportOptions.forEach(function (option) {
-  option.addEventListener("click", function () {
-  reportOptions.forEach(function (item) {
-  item.classList.remove("active");
-  const title = item.querySelector(".report-title");
-  if (title) title.classList.remove("purple-text");
-  });
-  option.classList.add("active");
-  const selectedTitle = option.querySelector(".report-title");
-  if (selectedTitle) selectedTitle.classList.add("purple-text");
-  const radioInput = option.querySelector("input[type='radio']");
-  if (radioInput) radioInput.checked = true;
-  });
-  });
+    script.
+      const reportOptions = document.querySelectorAll(".report-option");
+      reportOptions.forEach(function (option) {
+      option.addEventListener("click", function () {
+      reportOptions.forEach(function (item) {
+      item.classList.remove("active");
+      const title = item.querySelector(".report-title");
+      if (title) title.classList.remove("purple-text");
+      });
+      option.classList.add("active");
+      const selectedTitle = option.querySelector(".report-title");
+      if (selectedTitle) selectedTitle.classList.add("purple-text");
+      const radioInput = option.querySelector("input[type='radio']");
+      if (radioInput) radioInput.checked = true;
+      });
+      });
