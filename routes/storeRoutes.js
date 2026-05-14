@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const Pricing = require('../models/Pricing');
+const Stock = require('../models/Stock');
 
 // storedashboard
 router.get('/storemanager', (req, res) => {
@@ -13,9 +15,27 @@ router.post('/storemanager', (req, res) => {
 router.get('/addstock', (req, res) => {
   res.render('addstock');
 });
-router.post('/addstock', (req, res) => {
-  console.log(req.body);
-  res.redirect('/addstock');
+router.post('/addstock', async(req, res) => {
+  try {
+          const{product, quantity, unitCost, unitPrice, supplierName, supplierPhone, factoryName, paymentStatus} = req.body;
+      
+          const newSale = new Sale({
+            product, 
+            quantity, 
+            unitCost, 
+            unitPrice, 
+            supplierName, 
+            supplierPhone, 
+            factoryName, 
+            paymentStatus
+          });
+          console.log(newStock);
+          await newStock.save();
+          res.redirect('/addstock')
+        } catch (error) {
+          console.error(error);
+          res.render('addstock', {error: error.message});
+        }
 });
 
 // inventory
@@ -30,9 +50,22 @@ router.post('/inventory', (req, res) => {
 router.get('/pricing', (req, res) => {
   res.render('pricing');
 });
-router.post('/pricing', (req, res) => {
-  console.log(req.body);
-  res.redirect('/pricing');
+router.post('/pricing', async(req, res) => {
+  try {
+      const{productName, unitCost, sellingPrice} = req.body;
+  
+      const newPricing = new Pricing({
+        productName, 
+        unitCost, 
+        sellingPrice
+      });
+      console.log(newPricing);
+      await newPricing.save();
+      res.redirect('/pricing')
+    } catch (error) {
+      console.error(error);
+      res.render('pricing', {error: error.message});
+    }
 });
 
 

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const Deposits = require('../models/Deposits');
+const Reports = require('../models/Report');
 
 // admin dashboard
 router.get('/admindashboard', (req, res) => {
@@ -52,22 +53,48 @@ router.post('/credit', (req, res) => {
 router.get('/transport', (req, res) => {
   res.render('transport');
 });
-router.post('/transport', (req, res) => {
-  console.log(req.body);
-  res.redirect('/transport');
+router.post('/transport', async(req, res) => {
+  try {
+          const{fromDate, toDate} = req.body;
+      
+          const transportCharges = new transportCharges({
+            fromDate, 
+            toDate
+          });
+          console.log(transportCharges);
+          await transportCharges.save();
+          res.redirect('/transport')
+        } catch (error) {
+          console.error(error);
+          res.render('transport', {error: error.message});
+        }
 });
 
 // Deposit Registration 
 router.get('/depositRegistration', (req, res) => {
   res.render('depositReg');
 });
-router.post('/depositRegistration', (req, res) => {
+router.post('/depositRegistration', async(req, res) => {
   try {
-    const{fullName, nin, phoneNumber, selectedProduct, quantity, sellingPrice, moneyDeposited, customerDistance}
+    const{fullName, nin, phoneNumber, selectedProduct, quantity, sellingPrice, moneyDeposited, customerDistance} = req.body;
+
+    const newDeposit = new Deposits({
+      fullName,
+      nin: nin.toUpperCase(), 
+      phoneNumber, 
+      selectedProduct, 
+      quantity, 
+      sellingPrice, 
+      moneyDeposited, 
+      customerDistance
+    });
+    console.log(newDeposit);
+    await newDeposit.save();
+    res.redirect('/depositRegistration')
   } catch (error) {
-    
+    console.error(error);
+    res.render('usermanagement', {error: error.message});
   }
-  console.log(req.body);
 });
 
 // Deposit Tracking
@@ -90,9 +117,23 @@ router.post('/depositTracking', (req, res) => {
 router.get('/reports', (req, res) => {
   res.render('reports');
 });
-router.post('/reports', (req, res) => {
-  console.log(req.body);
-  res.redirect('/reports');
+router.post('/reports', async(req, res) => {
+  try {
+      const{reportType, startDate, endDate, exportFormat} = req.body;
+  
+      const newReports = new Reports({
+        reportType, 
+        startDate, 
+        endDate, 
+        exportFormat
+      });
+      console.log(newReports);
+      await newReports.save();
+      res.redirect('/reports')
+    } catch (error) {
+      console.error(error);
+      res.render('reports', {error: error.message});
+    }
 });
 
 // Deposit Collection

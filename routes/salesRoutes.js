@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Sale = require('../models/Sale');
 
 // sales dashboard
 router.get('/salesdashboard', (req, res) => {
@@ -13,11 +14,29 @@ router.post('/salesdashboard', (req, res) => {
 router.get('/recordsale', (req, res) => {
   res.render('recordsale');
 });
-
-
-router.post('/recordsale', (req, res) => {
-  console.log(req.body);
-  res.redirect('/recordsale');
+router.post('/recordsale', async(req, res) => {
+  try {
+        const{customerName, customerPhone, customerAddress, customerDistance, product, quantity, unitPrice, paymentMethod, transportCharge, totalAmount} = req.body;
+    
+        const newSale = new Sale({
+          customerName, 
+          customerPhone, 
+          customerAddress, 
+          customerDistance, 
+          product, 
+          quantity, 
+          unitPrice, 
+          paymentMethod, 
+          transportCharge, 
+          totalAmount
+        });
+        console.log(newSale);
+        await newSale.save();
+        res.redirect('/recordsale')
+      } catch (error) {
+        console.error(error);
+        res.render('recordsale', {error: error.message});
+      }
 });
 
 // stock check
