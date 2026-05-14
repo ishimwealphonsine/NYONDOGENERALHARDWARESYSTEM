@@ -13,8 +13,11 @@ router.post('/salesdashboard', (req, res) => {
 router.get('/recordsale', (req, res) => {
   res.render('recordsale');
 });
+
+
 router.post('/recordsale', (req, res) => {
   console.log(req.body);
+  res.redirect('/recordsale');
 });
 
 // stock check

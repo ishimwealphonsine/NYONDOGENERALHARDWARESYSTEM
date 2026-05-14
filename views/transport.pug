@@ -31,7 +31,7 @@ block content
     // Filter Card
     .card.border-0.shadow-sm.mb-4
       .card-body.p-4
-        form.row.g-3.align-items-center(action='transport-charges.html' method='GET')
+        form.row.g-3.align-items-center(action='/transport' method='POST')
           .col-auto
             i.bi.bi-calendar3.fs-4.text-secondary
           .col-md-auto
@@ -43,7 +43,7 @@ block content
           .col-md-3
             input.form-control.form-control-lg(type='text' name='toDate' value='06/05/2026')
           .col-md-auto
-            button.btn.purple-bg.text-white.btn-lg.fw-bold.px-4(type='submit')
+            button.btn.purple-bg.text-white.btn-lg.fw-bold.px-4.purpleBtns(type='submit')
               | Filter
     // Transport Charge Details Table
     .card.border-0.shadow-sm.mb-4

@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema(
       trim: true
     },
 
+    nin: {
+      type: String,
+      required: true,
+      trim: true,
+      minlength: 14,
+      maxlength: 14
+    },
+
     role: {
       type: String,
       required: true,

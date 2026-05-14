@@ -15,6 +15,7 @@ router.get('/addstock', (req, res) => {
 });
 router.post('/addstock', (req, res) => {
   console.log(req.body);
+  res.redirect('/addstock');
 });
 
 // inventory
@@ -31,6 +32,7 @@ router.get('/pricing', (req, res) => {
 });
 router.post('/pricing', (req, res) => {
   console.log(req.body);
+  res.redirect('/pricing');
 });
 
 
