@@ -14,29 +14,30 @@ router.post('/salesdashboard', (req, res) => {
 router.get('/recordsale', (req, res) => {
   res.render('recordsale');
 });
-router.post('/recordsale', async(req, res) => {
+router.post('/recordsale', async (req, res) => {
   try {
-        const{customerName, customerPhone, customerAddress, customerDistance, product, quantity, unitPrice, paymentMethod, transportCharge, totalAmount} = req.body;
-    
-        const newSale = new Sale({
-          customerName, 
-          customerPhone, 
-          customerAddress, 
-          customerDistance, 
-          product, 
-          quantity, 
-          unitPrice, 
-          paymentMethod, 
-          transportCharge, 
-          totalAmount
-        });
-        console.log(newSale);
-        await newSale.save();
-        res.redirect('/recordsale')
-      } catch (error) {
-        console.error(error);
-        res.render('recordsale', {error: error.message});
-      }
+    const { customerName, customerPhone, customerAddress, customerDistance, product, quantity, sellingPrice, paymentMethod, transportCharge} = req.body;
+    const totalAmount = parseInt(quantity) * parseFloat(sellingPrice);
+
+    const newSale = new Sale({
+      customerName,
+      customerPhone,
+      customerAddress,
+      customerDistance,
+      product,
+      quantity,
+      sellingPrice,
+      paymentMethod,
+      transportCharge,
+      totalAmount
+    });
+    console.log(newSale);
+    await newSale.save();
+    res.redirect('/recordsale')
+  } catch (error) {
+    console.error(error);
+    res.render('reports', { error: error.message });
+  }
 });
 
 // stock check

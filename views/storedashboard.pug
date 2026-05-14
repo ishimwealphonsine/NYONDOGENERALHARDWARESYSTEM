@@ -63,146 +63,146 @@ block content
             .alert-box
               h5.fw-bold.mb-2 Roofing Nails
               p.text-secondary.mb-0 Restock required
-script(src='https://cdn.jsdelivr.net/npm/chart.js')
-script.
-  const stockLevelsCtx = document.getElementById("stockLevelsChart").getContext("2d");
-  new Chart(stockLevelsCtx, {
-  type: "bar",
-  data: {
-  labels: ["Cement", "Iron Bars 16mm", "Iron Sheets", "Nails", "Paint"],
-  datasets: [{
-  label: "stock",
-  data: [2400, 850, 450, 180, 45],
-  backgroundColor: "#e728f1",
-  hoverBackgroundColor: "#e728f1",
-  borderColor: "#e728f1",
-  borderWidth: 0
-  }]
-  },
-  options: {
-  responsive: true,
-  animation: {
-  duration: 1500,
-  easing: "easeOutQuart"
-  },
-  interaction: {
-  mode: "point",
-  intersect: true
-  },
-  plugins: {
-  legend: {
-  display: false
-  },
-  tooltip: {
-  enabled: true,
-  displayColors: false,
-  backgroundColor: "#ffffff",
-  titleColor: "#000000",
-  bodyColor: "#e728f1",
-  borderColor: "#dddddd",
-  borderWidth: 1,
-  padding: 12,
-  callbacks: {
-  label: function (context) {
-  return "stock : " + context.raw;
-  }
-  }
-  }
-  },
-  scales: {
-  y: {
-  beginAtZero: true,
-  suggestedMax: 2400,
-  ticks: {
-  stepSize: 600
-  },
-  grid: {
-  color: "#d7d7d7"
-  }
-  },
-  x: {
-  grid: {
-  color: "#d7d7d7"
-  }
-  }
-  }
-  }
-  });
-  const stockMovementCtx = document.getElementById("stockMovementChart").getContext("2d");
-  new Chart(stockMovementCtx, {
-  type: "line",
-  data: {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-  datasets: [
-  {
-  label: "incoming",
-  data: [4000, 3000, 2000, 2800, 1900],
-  borderColor: "#e728f1",
-  backgroundColor: "#e728f1",
-  borderWidth: 3,
-  tension: 0.45,
-  pointRadius: 4,
-  pointHoverRadius: 6,
-  pointBackgroundColor: "#ffffff",
-  pointBorderColor: "#e728f1",
-  pointBorderWidth: 2
-  },
-  {
-  label: "outgoing",
-  data: [4000, 3000, 2000, 2800, 1900],
-  borderColor: "#160016",
-  backgroundColor: "#160016",
-  borderWidth: 3,
-  tension: 0.45,
-  pointRadius: 4,
-  pointHoverRadius: 6,
-  pointBackgroundColor: "#ffffff",
-  pointBorderColor: "#160016",
-  pointBorderWidth: 2
-  }
-  ]
-  },
-  options: {
-  responsive: true,
-  animation: {
-  duration: 1500,
-  easing: "easeOutQuart"
-  },
-  interaction: {
-  mode: "point",
-  intersect: true
-  },
-  plugins: {
-  legend: {
-  position: "bottom"
-  },
-  tooltip: {
-  enabled: true,
-  displayColors: false,
-  backgroundColor: "#ffffff",
-  titleColor: "#000000",
-  bodyColor: "#000000",
-  borderColor: "#dddddd",
-  borderWidth: 1,
-  padding: 12
-  }
-  },
-  scales: {
-  y: {
-  beginAtZero: true,
-  suggestedMax: 6000,
-  ticks: {
-  stepSize: 1500
-  },
-  grid: {
-  color: "#d7d7d7"
-  }
-  },
-  x: {
-  grid: {
-  color: "#d7d7d7"
-  }
-  }
-  }
-  }
-  });
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+    script.
+      const stockLevelsCtx = document.getElementById("stockLevelsChart").getContext("2d");
+      new Chart(stockLevelsCtx, {
+      type: "bar",
+      data: {
+      labels: ["Cement", "Iron Bars 16mm", "Iron Sheets", "Nails", "Paint"],
+      datasets: [{
+      label: "stock",
+      data: [2400, 850, 450, 180, 45],
+      backgroundColor: "#e728f1",
+      hoverBackgroundColor: "#e728f1",
+      borderColor: "#e728f1",
+      borderWidth: 0
+      }]
+      },
+      options: {
+      responsive: true,
+      animation: {
+      duration: 1500,
+      easing: "easeOutQuart"
+      },
+      interaction: {
+      mode: "point",
+      intersect: true
+      },
+      plugins: {
+      legend: {
+      display: false
+      },
+      tooltip: {
+      enabled: true,
+      displayColors: false,
+      backgroundColor: "#ffffff",
+      titleColor: "#000000",
+      bodyColor: "#e728f1",
+      borderColor: "#dddddd",
+      borderWidth: 1,
+      padding: 12,
+      callbacks: {
+      label: function (context) {
+      return "stock : " + context.raw;
+      }
+      }
+      }
+      },
+      scales: {
+      y: {
+      beginAtZero: true,
+      suggestedMax: 2400,
+      ticks: {
+      stepSize: 600
+      },
+      grid: {
+      color: "#d7d7d7"
+      }
+      },
+      x: {
+      grid: {
+      color: "#d7d7d7"
+      }
+      }
+      }
+      }
+      });
+      const stockMovementCtx = document.getElementById("stockMovementChart").getContext("2d");
+      new Chart(stockMovementCtx, {
+      type: "line",
+      data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+      datasets: [
+      {
+      label: "incoming",
+      data: [4000, 3000, 2000, 2800, 1900],
+      borderColor: "#e728f1",
+      backgroundColor: "#e728f1",
+      borderWidth: 3,
+      tension: 0.45,
+      pointRadius: 4,
+      pointHoverRadius: 6,
+      pointBackgroundColor: "#ffffff",
+      pointBorderColor: "#e728f1",
+      pointBorderWidth: 2
+      },
+      {
+      label: "outgoing",
+      data: [4000, 3000, 2000, 2800, 1900],
+      borderColor: "#160016",
+      backgroundColor: "#160016",
+      borderWidth: 3,
+      tension: 0.45,
+      pointRadius: 4,
+      pointHoverRadius: 6,
+      pointBackgroundColor: "#ffffff",
+      pointBorderColor: "#160016",
+      pointBorderWidth: 2
+      }
+      ]
+      },
+      options: {
+      responsive: true,
+      animation: {
+      duration: 1500,
+      easing: "easeOutQuart"
+      },
+      interaction: {
+      mode: "point",
+      intersect: true
+      },
+      plugins: {
+      legend: {
+      position: "bottom"
+      },
+      tooltip: {
+      enabled: true,
+      displayColors: false,
+      backgroundColor: "#ffffff",
+      titleColor: "#000000",
+      bodyColor: "#000000",
+      borderColor: "#dddddd",
+      borderWidth: 1,
+      padding: 12
+      }
+      },
+      scales: {
+      y: {
+      beginAtZero: true,
+      suggestedMax: 6000,
+      ticks: {
+      stepSize: 1500
+      },
+      grid: {
+      color: "#d7d7d7"
+      }
+      },
+      x: {
+      grid: {
+      color: "#d7d7d7"
+      }
+      }
+      }
+      }
+      });

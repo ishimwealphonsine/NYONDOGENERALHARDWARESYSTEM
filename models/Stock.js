@@ -35,6 +35,10 @@ const stockSchema = new mongoose.Schema(
       min: 0
     },
 
+    totalPaid: {
+      type: Number
+    },
+
     supplierName: {
       type: String,
       required: true,
@@ -51,6 +55,11 @@ const stockSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true
+    },
+
+    dateReceived: {
+      type: Date,
+      default: Date.now
     },
 
     paymentStatus: {

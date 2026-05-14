@@ -18,20 +18,21 @@ router.get('/addstock', (req, res) => {
 router.post('/addstock', async(req, res) => {
   try {
           const{product, quantity, unitCost, unitPrice, supplierName, supplierPhone, factoryName, paymentStatus} = req.body;
+          const totalPaid = parseInt(quantity) * parseFloat(unitPrice); 
       
-          const newSale = new Sale({
+          const newItem = new Stock({
             product, 
             quantity, 
             unitCost, 
             unitPrice, 
+            totalPaid,
             supplierName, 
             supplierPhone, 
             factoryName, 
             paymentStatus
           });
-          console.log(newStock);
-          await newStock.save();
-          res.redirect('/addstock')
+          await newItem.save();
+          res.redirect('/storemanager')
         } catch (error) {
           console.error(error);
           res.render('addstock', {error: error.message});

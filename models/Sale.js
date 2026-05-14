@@ -46,7 +46,7 @@ const saleSchema = new mongoose.Schema(
       min: 1
     },
 
-    unitPrice: {
+    sellingPrice: {
       type: Number,
       required: true,
       min: 0

@@ -9,7 +9,7 @@ block content
           div
             h3.fw-bold.mb-1 Register Customer for Deposit Scheme
             p.text-secondary.mb-0 Eligible products: Cement, Iron Sheets, Iron Bars
-        form(action='register-deposit-customer.html' method='POST')
+        form(action='/depositRegistration' method='POST')
           .mb-4
             label.form-label.fw-semibold Full Name (as per National ID)
             input.form-control.form-control-lg(type='text' name='fullName' placeholder='Enter full name' required='')

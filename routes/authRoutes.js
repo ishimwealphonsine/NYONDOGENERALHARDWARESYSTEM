@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const password = require('passport');
+
+// Importing a model
 
 // login
 router.get('/login', (req, res) => {

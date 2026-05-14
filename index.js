@@ -3,9 +3,12 @@ const express = require('express');
 const expressSession = require('express-session');
 const path = require('path');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 require('dotenv').config();
 const connectDb = require('./config/db');
+// Import User model
+const User = require('./models/User');
 
 // 2. Instantiations
 const app = express();
@@ -27,13 +30,19 @@ app.use((req, res, next) => {
   next();
 });
 
+// Express session configuration
 app.use(expressSession({
   secret: 'thisIsMyNyondoStockProject',
   resave: false,
   saveUninitialized: false
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-
+// Passport configuration
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 // 5. Routes

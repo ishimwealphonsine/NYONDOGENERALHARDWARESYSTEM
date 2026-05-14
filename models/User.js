@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose').default || require('passport-local-mongoose');
 
 const userSchema = new mongoose.Schema(
   {
@@ -29,15 +29,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       enum: ['Sales Attendant', 'Store Manager', 'Accounts/Admin']
     },
-
-    password: {
-      type: String,
-      required: true
-    }
   },
   {
     timestamps: true
   }
 );
 
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email'
+});
 module.exports = mongoose.model('User', userSchema);

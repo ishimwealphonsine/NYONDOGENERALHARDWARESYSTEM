@@ -16,29 +16,32 @@ router.post('/admindashboard', (req, res) => {
 router.get('/users', (req, res) => {
   res.render('usermanagement');
 });
-router.post('/users', async(req, res) => {
+router.post('/users', async (req, res) => {
   try {
-    const{fullName, email, nin, role, password} = req.body;
-    let existingUser = await User.findOne({email:email.toLowerCase()});
-    if(existingUser){
-      return  res.render('usermanagement', {error: 'User is already registered'});
+    const { fullName, email, nin, role, password} = req.body;
+    let existingUser = await User.findOne({ email: email.toLowerCase() });
+    if (existingUser) {
+      return res.render('usermanagement', { error: 'User is already registered' });
     }
     // Create new user
     const newUser = new User({
-      fullName, 
+      fullName,
       email: email.toLowerCase(),
-      nin: nin.toLowerCase(), 
-      role, 
-      password
+      nin: nin.toLowerCase(),
+      role,
     })
     console.log(newUser);
-    await newUser.save();
-    res.redirect('/users')
+    await User.register(newUser, req.body.password, (err) => {
+      if(err) {
+        return res.redirect('/usermanagement');
+      }
+        res.redirect('/usermanagement');
+    })
   } catch (error) {
     console.error(error);
-    res.render('usermanagement', {error: error.message});
+    res.render('usermanagement', { error: error.message });
   }
-   
+
 });
 
 // supplier Credit
@@ -53,39 +56,39 @@ router.post('/credit', (req, res) => {
 router.get('/transport', (req, res) => {
   res.render('transport');
 });
-router.post('/transport', async(req, res) => {
+router.post('/transport', async (req, res) => {
   try {
-          const{fromDate, toDate} = req.body;
-      
-          const transportCharges = new transportCharges({
-            fromDate, 
-            toDate
-          });
-          console.log(transportCharges);
-          await transportCharges.save();
-          res.redirect('/transport')
-        } catch (error) {
-          console.error(error);
-          res.render('transport', {error: error.message});
-        }
+    const { fromDate, toDate } = req.body;
+
+    const transportCharges = new transportCharges({
+      fromDate,
+      toDate
+    });
+    console.log(transportCharges);
+    await transportCharges.save();
+    res.redirect('/transport')
+  } catch (error) {
+    console.error(error);
+    res.render('transport', { error: error.message });
+  }
 });
 
 // Deposit Registration 
 router.get('/depositRegistration', (req, res) => {
   res.render('depositReg');
 });
-router.post('/depositRegistration', async(req, res) => {
+router.post('/depositRegistration', async (req, res) => {
   try {
-    const{fullName, nin, phoneNumber, selectedProduct, quantity, sellingPrice, moneyDeposited, customerDistance} = req.body;
+    const { fullName, nin, phoneNumber, selectedProduct, quantity, sellingPrice, moneyDeposited, customerDistance } = req.body;
 
     const newDeposit = new Deposits({
       fullName,
-      nin: nin.toUpperCase(), 
-      phoneNumber, 
-      selectedProduct, 
-      quantity, 
-      sellingPrice, 
-      moneyDeposited, 
+      nin: nin.toUpperCase(),
+      phoneNumber,
+      selectedProduct,
+      quantity,
+      sellingPrice,
+      moneyDeposited,
       customerDistance
     });
     console.log(newDeposit);
@@ -93,7 +96,7 @@ router.post('/depositRegistration', async(req, res) => {
     res.redirect('/depositRegistration')
   } catch (error) {
     console.error(error);
-    res.render('usermanagement', {error: error.message});
+    res.render('usermanagement', { error: error.message });
   }
 });
 
@@ -117,23 +120,23 @@ router.post('/depositTracking', (req, res) => {
 router.get('/reports', (req, res) => {
   res.render('reports');
 });
-router.post('/reports', async(req, res) => {
+router.post('/reports', async (req, res) => {
   try {
-      const{reportType, startDate, endDate, exportFormat} = req.body;
-  
-      const newReports = new Reports({
-        reportType, 
-        startDate, 
-        endDate, 
-        exportFormat
-      });
-      console.log(newReports);
-      await newReports.save();
-      res.redirect('/reports')
-    } catch (error) {
-      console.error(error);
-      res.render('reports', {error: error.message});
-    }
+    const { reportType, startDate, endDate, exportFormat } = req.body;
+
+    const newReports = new Reports({
+      reportType,
+      startDate,
+      endDate,
+      exportFormat
+    });
+    console.log(newReports);
+    await newReports.save();
+    res.redirect('/reports')
+  } catch (error) {
+    console.error(error);
+    res.render('reports', { error: error.message });
+  }
 });
 
 // Deposit Collection
