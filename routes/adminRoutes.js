@@ -27,7 +27,7 @@ router.post('/users', async (req, res) => {
     const newUser = new User({
       fullName,
       email: email.toLowerCase(),
-      nin: nin.toLowerCase(),
+      nin: nin.toUpperCase(),
       role,
     })
     console.log(newUser);
