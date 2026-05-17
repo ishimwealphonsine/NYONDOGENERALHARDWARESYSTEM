@@ -9,7 +9,7 @@ const pricingSchema = new mongoose.Schema(
       trim: true
     },
 
-    unitCost: {
+    costPrice: {
       type: Number,
       required: true,
       min: 0

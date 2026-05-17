@@ -1,8 +1,8 @@
 const stockSchema = {
   product: String,
   quantity: Number,
-  unitCost: Number,
-  unitPrice: Number,
+  costPrice: Number,
+  sellingPrice: Number,
   supplierName: String,
   supplierPhone: String,
   factoryName: String,

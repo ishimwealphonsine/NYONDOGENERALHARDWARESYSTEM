@@ -12,7 +12,7 @@ const User = require('./models/User');
 
 // 2. Instantiations
 const app = express();
-const port = 3000;
+const port = 4000;
 
 // 3. Configuration
 // Set templating engine to pug

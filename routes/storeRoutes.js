@@ -17,14 +17,14 @@ router.get('/addstock', (req, res) => {
 });
 router.post('/addstock', async(req, res) => {
   try {
-          const{product, quantity, unitCost, unitPrice, supplierName, supplierPhone, factoryName, paymentStatus} = req.body;
-          const totalPaid = parseInt(quantity) * parseFloat(unitPrice); 
+          const{product, quantity, costPrice, sellingPrice, supplierName, supplierPhone, factoryName, paymentStatus} = req.body;
+          const totalPaid = parseInt(quantity) * parseFloat(sellingPrice); 
       
           const newItem = new Stock({
             product, 
             quantity, 
-            unitCost, 
-            unitPrice, 
+            costPrice, 
+            sellingPrice, 
             totalPaid,
             supplierName, 
             supplierPhone, 
@@ -53,11 +53,11 @@ router.get('/pricing', (req, res) => {
 });
 router.post('/pricing', async(req, res) => {
   try {
-      const{productName, unitCost, sellingPrice} = req.body;
+      const{productName, costPrice, sellingPrice} = req.body;
   
       const newPricing = new Pricing({
         productName, 
-        unitCost, 
+        costPrice, 
         sellingPrice
       });
       console.log(newPricing);

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Sale = require('../models/Sale');
+const Stock = require('../models/Stock')
 
 // sales dashboard
 router.get('/salesdashboard', (req, res) => {
@@ -11,9 +12,16 @@ router.post('/salesdashboard', (req, res) => {
 });
 
 // record sale
-router.get('/recordsale', (req, res) => {
-  res.render('recordsale');
+router.get('/recordsale', async (req, res) => {
+  try {
+    const items = await Stock.find({quantity: {$gt:0}});
+    res.render('recordsale', {items});
+  } catch (error) {
+    res.status(500).send('server error');
+    console.log('error', error.message);
+  }
 });
+
 router.post('/recordsale', async (req, res) => {
   try {
     const { customerName, customerPhone, customerAddress, customerDistance, product, quantity, sellingPrice, paymentMethod, transportCharge} = req.body;
@@ -33,10 +41,10 @@ router.post('/recordsale', async (req, res) => {
     });
     console.log(newSale);
     await newSale.save();
-    res.redirect('/recordsale')
+    res.redirect('/salesdashboard')
   } catch (error) {
     console.error(error);
-    res.render('reports', { error: error.message });
+    res.render('recordsale', { error: error.message });
   }
 });
 

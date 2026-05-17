@@ -33,10 +33,10 @@ router.post('/users', async (req, res) => {
     console.log(newUser);
     await User.register(newUser, req.body.password, (err) => {
       if(err) {
-        return res.redirect('/usermanagement');
+        return res.redirect('/users');
       }
-        res.redirect('/usermanagement');
     })
+    res.redirect('/users');
   } catch (error) {
     console.error(error);
     res.render('usermanagement', { error: error.message });

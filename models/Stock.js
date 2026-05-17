@@ -23,16 +23,16 @@ const stockSchema = new mongoose.Schema(
       min: 1
     },
 
-    unitCost: {
+    costPrice: {
       type: Number,
       required: true,
       min: 0
     },
 
-    unitPrice: {
+    sellingPrice: {
       type: Number,
       required: true,
-      min: 0
+      min: 0,
     },
 
     totalPaid: {

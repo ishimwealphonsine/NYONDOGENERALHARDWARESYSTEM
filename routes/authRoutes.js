@@ -4,6 +4,7 @@ const passport = require('passport');
 
 // Importing a model
 const User = require('../models/User')
+
 // login
 router.get('/login', (req, res) => {
   res.render('login');
@@ -20,7 +21,15 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
   }
 });
 
-
+// logout
+router.get('/logout', (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/')
+  })
+})
 
 
 

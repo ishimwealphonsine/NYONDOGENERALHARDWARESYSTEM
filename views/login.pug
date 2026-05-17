@@ -9,25 +9,11 @@ head
 .container.vh-100.d-flex.flex-column.justify-content-center.align-items-center
   .card.login-card.border-0.shadow-lg.w-100
     .card-body.p-4
-      .container.row
-        img.col-2(src='/images/logo.png' alt='NyondoStock Logo' width='40' height='40')
-        h2.fw-bold.mb-3.col-9 Login to Your Account
-      p.fw-semibold.mb-2 Select Role
-      .row.g-2.mb-2
-        .col-3
-          .role-card.active.text-center.p-3(data-role='Sales Attendant')
-            i.bi.bi-person.fs-4.d-block.mb-1
-            span Sales
-        .col-3
-          .role-card.text-center.p-3(data-role='Store Manager')
-            i.bi.bi-shop.fs-4.d-block.mb-1
-            span Store
-        .col-3
-          .role-card.text-center.p-3(data-role='Accounts/Admin')
-            i.bi.bi-briefcase.fs-4.d-block.mb-1
-            span Accounts/Admin
-      p#selectedRoleText.fs-5.text-secondary.mb-3 Sales Attendant
-      form(action='/auth/login' method='POST')
+      .d-flex.justify-content-center.mb-3
+        img(src='/images/logo.png' alt='NyondoStock Logo' width='200' height='100' class='img-fluid')
+      .d-flex.justify-content-center
+        h2.fw-bold.mb-3 Login to Your Account
+      form(action='/login' method='POST')
         .mb-3
           label.form-label.fw-semibold Email 
           input.form-control(type='text' name='email' placeholder='Enter your email' required='')
@@ -37,20 +23,5 @@ head
         input#selectedRoleInput(type='hidden' name='role' value='Sales Attendant')
         button.btn.btn-purple.btn-lg.w-100.fw-bold.py-3(type='submit' href='admindashboard.html')
           | Login
-  a.text-decoration-none.mt-3.backtohome(href='index.html')
+  a.text-decoration-none.mt-3.backtohome(href='/')
     | Back to Home
-script.
-  const roleCards = document.querySelectorAll(".role-card");
-  const selectedRoleText = document.getElementById("selectedRoleText");
-  const selectedRoleInput = document.getElementById("selectedRoleInput");
-  roleCards.forEach(function (card) {
-  card.addEventListener("click", function () {
-  roleCards.forEach(function (item) {
-  item.classList.remove("active");
-  });
-  card.classList.add("active");
-  const role = card.getAttribute("data-role");
-  selectedRoleText.textContent = role;
-  selectedRoleInput.value = role;
-  });
-  });

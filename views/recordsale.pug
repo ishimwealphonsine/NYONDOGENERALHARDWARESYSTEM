@@ -9,7 +9,7 @@ block content
           div
             h3.fw-bold.mb-1 Record Sale
             p.text-secondary.mb-0 Complete a customer purchase and issue receipt
-        form(action='record-sale.html' method='POST')
+        form(action='/recordsale' method='POST')
           .mb-4
             label.form-label.fw-semibold Customer Name
             input.form-control.form-control-lg(type='text' name='customerName' placeholder='Enter customer name' required='')
@@ -25,13 +25,9 @@ block content
           .mb-4
             label.form-label.fw-semibold Product
             select.form-select.form-select-lg(name='product' required='')
-              option(value='') Select product...
-              option(value='Cement - 50kg') Cement - 50kg
-              option(value='Iron Bars - 12mm') Iron Bars - 12mm
-              option(value='Iron Bars - 16mm') Iron Bars - 16mm
-              option(value='Iron Sheets') Iron Sheets
-              option(value='Nails - 3 inch') Nails - 3 inch
-              option(value='Wire Mesh') Wire Mesh
+              option(value="" disables selected) Select product
+              each product in items 
+                option(value=product_id) #{product.product} (stock: #{product.quantity} | price: #{product.sellingPrice} UGX)
           .mb-4
             label.form-label.fw-semibold Quantity
             input.form-control.form-control-lg(type='number' name='quantity' placeholder='Enter quantity' required='')

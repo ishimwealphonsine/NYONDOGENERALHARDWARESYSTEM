@@ -28,16 +28,9 @@ const saleSchema = new mongoose.Schema(
     },
 
     product: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Stock',
       required: true,
-      enum: [
-        'Cement - 50kg',
-        'Iron Bars - 12mm',
-        'Iron Bars - 16mm',
-        'Iron Sheets',
-        'Nails - 3 inch',
-        'Wire Mesh'
-      ]
     },
 
     quantity: {
@@ -66,8 +59,19 @@ const saleSchema = new mongoose.Schema(
     totalAmount: {
       type: Number,
       default: 0
+    },
+
+    attendant: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users'
+    },
+
+    date: {
+      type: Date,
+      default: Date.now
     }
   },
+
   {
     timestamps: true
   }
