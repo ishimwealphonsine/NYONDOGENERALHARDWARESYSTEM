@@ -27,7 +27,7 @@ block content
             select.form-select.form-select-lg(name='productId' required='')
               option(value="" disables selected) Select product
               each product in products 
-                option(value=product_id) #{product.product} (stock: #{product.quantity} | price: #{product.sellingPrice} UGX)
+                option(value=product._id) #{product.product} (stock: #{product.quantity} | price: #{product.sellingPrice} UGX)
           .mb-4
             label.form-label.fw-semibold Quantity
             input.form-control.form-control-lg(type='number' name='quantity' placeholder='Enter quantity' required='')

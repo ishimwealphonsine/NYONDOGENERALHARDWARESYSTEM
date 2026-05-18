@@ -63,7 +63,7 @@ const saleSchema = new mongoose.Schema(
 
     attendant: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Users'
+      ref: 'User'
     },
 
     date: {

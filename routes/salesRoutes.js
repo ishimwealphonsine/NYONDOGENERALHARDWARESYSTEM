@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Sale = require('../models/Sale');
 const Stock = require('../models/Stock');
+const {isAttendant, isManager, isAdmin} = require('../middleware/auth');
 
 // sales dashboard
 router.get('/salesdashboard', (req, res) => {
@@ -12,9 +13,10 @@ router.post('/salesdashboard', (req, res) => {
 });
 
 // record sale
-router.get('/recordsale', async (req, res) => {
+router.get('/recordsale', isAttendant, async (req, res) => {
   try {
     const products = await Stock.find({ quantity: { $gt: 0 } });
+    console.log(products);
     res.render('recordsale', { products });
   } catch (error) {
     res.status(500).send('server error');
@@ -22,7 +24,7 @@ router.get('/recordsale', async (req, res) => {
   }
 });
 
-router.post('/recordsale', async (req, res) => {
+router.post('/recordsale', isAttendant, async (req, res) => {
   try {
     const { customerName, customerPhone, customerAddress, customerDistance, productId, quantity, sellingPrice, paymentMethod, transportCharge } = req.body;
     const totalAmount = parseInt(quantity) * parseFloat(sellingPrice);
@@ -45,16 +47,16 @@ router.post('/recordsale', async (req, res) => {
       quantity,
       sellingPrice,
       paymentMethod,
-      transportCharge: transport || 0,
-      attendant: req.user._Id,
+      transportCharge: transportCharge || 0,
+      attendant: req.user._id,
       totalAmount
     });
-    console.log(newSale);
-    await newSale.save();
+    
+    await newSale.save().then(result => console.log(result)).catch(error => console.log(error));
     res.redirect('/salesdashboard')
   } catch (error) {
     console.error(error);
-    res.render('recordsale', { error: error.message });
+    // res.render('recordsale', { error: error.message });
   }
 });
 
