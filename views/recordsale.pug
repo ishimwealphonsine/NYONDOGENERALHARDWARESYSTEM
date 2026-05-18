@@ -24,9 +24,9 @@ block content
             input.form-control.form-control-lg(type='text' name='customerDistance' placeholder='Enter customer distance' required='')
           .mb-4
             label.form-label.fw-semibold Product
-            select.form-select.form-select-lg(name='product' required='')
+            select.form-select.form-select-lg(name='productId' required='')
               option(value="" disables selected) Select product
-              each product in items 
+              each product in products 
                 option(value=product_id) #{product.product} (stock: #{product.quantity} | price: #{product.sellingPrice} UGX)
           .mb-4
             label.form-label.fw-semibold Quantity

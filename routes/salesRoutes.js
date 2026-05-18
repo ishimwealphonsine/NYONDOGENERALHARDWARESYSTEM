@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Sale = require('../models/Sale');
-const Stock = require('../models/Stock')
+const Stock = require('../models/Stock');
 
 // sales dashboard
 router.get('/salesdashboard', (req, res) => {
@@ -14,8 +14,8 @@ router.post('/salesdashboard', (req, res) => {
 // record sale
 router.get('/recordsale', async (req, res) => {
   try {
-    const items = await Stock.find({quantity: {$gt:0}});
-    res.render('recordsale', {items});
+    const products = await Stock.find({ quantity: { $gt: 0 } });
+    res.render('recordsale', { products });
   } catch (error) {
     res.status(500).send('server error');
     console.log('error', error.message);
@@ -24,19 +24,29 @@ router.get('/recordsale', async (req, res) => {
 
 router.post('/recordsale', async (req, res) => {
   try {
-    const { customerName, customerPhone, customerAddress, customerDistance, product, quantity, sellingPrice, paymentMethod, transportCharge} = req.body;
+    const { customerName, customerPhone, customerAddress, customerDistance, productId, quantity, sellingPrice, paymentMethod, transportCharge } = req.body;
     const totalAmount = parseInt(quantity) * parseFloat(sellingPrice);
+    const product = await Stock.findById(productId)
+    if(!product) return res.status(404).send('Product not found')
+    if(product.quantity < quantity) {
+      return res.status(400).send('Not enough stock available')
+    }
+    // deduct quantity sold from stock quantity and save the new quantity to the stock collection
+    product.quantity -= quantity
+    await product.save()
 
+    // Record the sale
     const newSale = new Sale({
       customerName,
       customerPhone,
       customerAddress,
       customerDistance,
-      product,
+      product: productId,
       quantity,
       sellingPrice,
       paymentMethod,
-      transportCharge,
+      transportCharge: transport || 0,
+      attendant: req.user._Id,
       totalAmount
     });
     console.log(newSale);
